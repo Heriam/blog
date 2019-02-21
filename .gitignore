@@ -1,0 +1,4 @@
+/output/
+/pelican-themes/
+/pelican-plugins/
+*.pyc
