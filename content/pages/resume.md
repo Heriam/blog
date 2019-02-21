@@ -31,9 +31,9 @@ A 2-year-old master graduate with double degrees in <em>Internet Technology and 
 <hr />
 <strong>EDUCATION</strong>
 <hr />
-<strong>M.Sc. in Internet of Things</strong>, IMT Atlantique, GPA: 3.85/3.9, 2015/2016<br />
-<strong>M.Sc. in Internet Technology and Architecture</strong>, KTH Royal Institute of Technology, GPA: 4.61/5.0, 2014/2015<br />
-<strong>B.Sc. in Agricultural Resources and Environment</strong>, Zhejiang University, GPA: 3.66/4.0, 2010-2014<br />  
+M.Sc. in Internet of Things, IMT Atlantique, GPA: 3.85/3.9, 2015/2016<br />
+M.Sc. in Internet Technology and Architecture, KTH Royal Institute of Technology, GPA: 4.61/5.0, 2014/2015<br />
+B.Sc. in Agricultural Resources and Environment, Zhejiang University, GPA: 3.66/4.0, 2010-2014<br />  
 
 
 <hr />
