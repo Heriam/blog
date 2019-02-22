@@ -34,7 +34,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 		  
 		  
 MENUITEMS = (
-  ('出版','/pages/publications')
+  ('出版','/pages/publications'),
 )
 
 DEFAULT_PAGINATION = 10
