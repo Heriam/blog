@@ -2,7 +2,7 @@ title: publications
 date: 2016-11-03
 template: page
 
-<h4>论文</h4>
+<h3>论文</h3>
 <hr>
 
 <b>2019</b>
@@ -29,14 +29,14 @@ template: page
 <a href="http://www.hao-jiang.com/articles/networking/sdmtn-paperslides.html">slides</a>
 </ul>
 <br>
-<h4>专利</h4>
+<h3>专利</h3>
 <hr>
 <b>2016</b>
 <ul>
 <li>  “<a href="http://xueshu.baidu.com/s?wd=paperuri:(fb45d8368f79de496d94e92d37527f93)&filter=sc_long_sign&sc_ks_para=q%3DTIMESLOT+SHIFTING+FOR+LOWER-PRIORITY+PACKET+IN+A+TIME+SLOTTED+NETWORK&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_us=12178294779030194219">Timeslot Shifting for Lower-Priority Packets in a Time Slotted Network</a>”. P. Thubert, Z. Brodard, <b>H. Jiang</b>. U.S.Patent 15/207,621 filed 12-Jul-2016.
 </ul>
 <br>
-<h4>标准</h4>
+<h3>标准</h3>
 <hr>
 <b>2016</b>
 <ul>
@@ -44,7 +44,7 @@ template: page
 <li> <a href="https://tools.ietf.org/html/draft-thubert-bier-replication-elimination-00">“BIER-TE-based OAM, Replication & Elimination”</a>. P. Thubert, Z. Brodard, <b>H. Jiang</b>. IETF Internet draft. Version: draft-thubert-bier-replication-elimination-00. IETF BIER WG. September 14, 2016.
 </ul>
 <br>
-<h4>其它</h4>
+<h3>其它</h3>
 <hr>
 <b>2016</b>
 <ul>
