@@ -5,7 +5,7 @@ template: page
 
 
 <div style="outline: #154360 solid;">
-<h3 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;论文</font></h3>
+<h5 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;论文</font></h5>
 <div style="padding: 10px 10px 10px 10px">
 
 <b>2019</b>
@@ -36,7 +36,7 @@ template: page
 </div>
 
 <div style="outline: #154360 solid;">
-<h3 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;专利</font></h3>
+<h5 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;专利</font></h5>
 <div style="padding: 10px 10px 10px 10px">
 <b>2016</b>
 <ul>
@@ -46,7 +46,7 @@ template: page
 </div>
 
 <div style="outline: #154360 solid;">
-<h3 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;标准</font></h3>
+<h5 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;标准</font></h5>
 <div style="padding: 10px 10px 10px 10px">
 <b>2016</b>
 <ul>
@@ -57,7 +57,7 @@ template: page
 </div>
 
 <div style="outline: #154360 solid;">
-<h3 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;其它</font></h3>
+<h5 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;其它</font></h5>
 <div style="padding: 10px 10px 10px 10px">
 <b>2016</b>
 <ul>
