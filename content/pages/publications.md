@@ -4,15 +4,14 @@ template: page
 
 
 
-<div style="outline: #154360 solid;">
-<h4 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;论文</font></h4>
-<div style="padding: 10px 10px 10px 10px">
+
+<h3>论文</h3>
+<hr>
 
 <b>2019</b>
 <ul>
 <li>"A JSON-Based Fast and Expressive Access Control Policy Framework". <b>H. Jiang</b> and A. Bouabdallah. Advanced Data Modeling and Processing With JSON. To be published by IGI Global in 2019.
 </ul>
-
 
 <b>2017</b>
 <ul>
@@ -32,33 +31,24 @@ template: page
 &nbsp;&nbsp;
 <a href="http://www.hao-jiang.com/articles/networking/sdmtn-paperslides.html">slides</a>
 </ul>
-</div>
-</div>
 <br>
-<div style="outline: #154360 solid;">
-<h4 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;专利</font></h4>
-<div style="padding: 10px 10px 10px 10px">
+<h3>专利</h3>
+<hr>
 <b>2016</b>
 <ul>
 <li>  “<a href="http://xueshu.baidu.com/s?wd=paperuri:(fb45d8368f79de496d94e92d37527f93)&filter=sc_long_sign&sc_ks_para=q%3DTIMESLOT+SHIFTING+FOR+LOWER-PRIORITY+PACKET+IN+A+TIME+SLOTTED+NETWORK&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_us=12178294779030194219">Timeslot Shifting for Lower-Priority Packets in a Time Slotted Network</a>”. P. Thubert, Z. Brodard, <b>H. Jiang</b>. U.S.Patent 15/207,621 filed 12-Jul-2016.
 </ul>
-</div>
-</div>
 <br>
-<div style="outline: #154360 solid;">
-<h4 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;标准</font></h4>
-<div style="padding: 10px 10px 10px 10px">
+<h3>标准</h3>
+<hr>
 <b>2016</b>
 <ul>
 <li> <a href="https://tools.ietf.org/html/draft-thubert-6lo-bier-dispatch-01">“A 6loRH for Bit Strings”</a>. P. Thubert, Z. Brodard, <b>H. Jiang</b>, & G. Texier. IETF Internet draft. Version: draft-thubert-6lo-bier-dispatch-01. IETF 6lo WG. June 29, 2016.
 <li> <a href="https://tools.ietf.org/html/draft-thubert-bier-replication-elimination-00">“BIER-TE-based OAM, Replication & Elimination”</a>. P. Thubert, Z. Brodard, <b>H. Jiang</b>. IETF Internet draft. Version: draft-thubert-bier-replication-elimination-00. IETF BIER WG. September 14, 2016.
 </ul>
-</div>
-</div>
 <br>
-<div style="outline: #154360 solid;">
-<h4 style="background-color: #154360; "><font face="open sans light" color="white">&nbsp;&nbsp;其它</font></h4>
-<div style="padding: 10px 10px 10px 10px">
+<h3>其它</h3>
+<hr>
 <b>2016</b>
 <ul>
 <li> <a href="http://www.hao-jiang.com/articles/networking/sdiot.html">"Software-defined IoT: 6TiSCH Centralized Scheduling and Multipath Construction"</a>. <b>H. Jiang</b>. Internship report (Master Thesis). Cisco Paris Innovation and Research Lab, September 21, 2016.
@@ -86,5 +76,3 @@ template: page
 <ul>
 <li> <a href="http://www.hao-jiang.com/articles/networking/ccienotes.html">CCIE笔记-路由交换理论和实战/ CCIE Notes - Routing and Switching (in Chinese)</a>. <b>H. Jiang</b>. August 27, 2013.
 </ul>
-</div>
-</div>
