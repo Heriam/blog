@@ -14,6 +14,18 @@ DEFAULT_LANG = u'en'
 
 THEME = 'tuxlite_tbs'
 
+FILENAME_METADATA = '(?P<slug>.*)'
+
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = ARTICLE_URL
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = PAGE_URL
+CATEGORY_URL = '{slug}/index.html'
+CATEGORY_SAVE_AS = CATEGORY_URL
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = TAG_URL
+TAGS_SAVE_AS = 'tag/index.html'
+
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 USE_FOLDER_AS_CATEGORY = True
