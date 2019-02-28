@@ -10,22 +10,24 @@ PATH = 'content'
 
 TIMEZONE = 'Asia/Shanghai'
 
-DEFAULT_LANG = u'en'
-
 THEME = 'tuxlite_tbs'
 
 FILENAME_METADATA = '(?P<slug>.*)'
 
-ARTICLE_URL = 'articles/{category}/{slug}.html'
+ARCHIVES_URL = 'pages/archives.html'
+ARCHIVES_SAVE_AS = ARCHIVES_URL
+ARTICLE_URL = 'pages/{category}/{slug}.html'
 ARTICLE_SAVE_AS = ARTICLE_URL
 PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = PAGE_URL
-CATEGORY_URL = '{slug}/index.html'
+CATEGORY_URL = 'pages/{slug}/index.html'
 CATEGORY_SAVE_AS = CATEGORY_URL
 TAG_URL = 'tags/{slug}.html'
 TAG_SAVE_AS = TAG_URL
-TAGS_SAVE_AS = 'tags/index.html'
+DEFAULT_LANG = u'zh_CN'
+DEFAULT_CATEGORY = 'uncategorized'
 
+RELATIVE_URLS = True
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 USE_FOLDER_AS_CATEGORY = True
@@ -40,16 +42,21 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('iMooC', 'http://www.imooc.com/'),
+         ('w3schools', 'http://www.w3schools.com/'),
+         ('Cisco Lab', 'https://developer.cisco.com/'),
+         ('Coursera', 'https://www.coursera.org/'),
+         ('RUNOOB', 'http://www.runoob.com/')
+         )
+
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
-		  
+SOCIAL = (('Facebook','https://www.facebook.com/hao.zju'),
+		  ('Weibo', 'http://weibo.com/207575725'),
+          ('Linkedin', 'http://www.linkedin.com/in/haochiang'),
+          ('Github','https://github.com/Heriam'),
+          ('Qyer', 'http://www.qyer.com/u/5831110/plan')
+          )
 		  
 MENUITEMS = (
   ('出版','/pages/publications'),
