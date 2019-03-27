@@ -1,4 +1,4 @@
-title: publications
+title: Publications
 date: 2016-11-03
 template: page
 
