@@ -1,4 +1,4 @@
-Title: about me
+Title: About Me
 Date: 2013-04-18
 Template: page
 save_as: index.html
