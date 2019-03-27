@@ -38,7 +38,7 @@ DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 10
 PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}
 PAGINATION_PATTERNS = (
-    (1, '{url}', '{save_as}',
+    (1, '{url}', '{save_as}'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
 NEWEST_FIRST_ARCHIVES = True
