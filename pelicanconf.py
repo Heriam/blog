@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 # 网站信息
 AUTHOR = u'Justin C.'
 SITENAME = u'Heriam'
-SITEURL = u'jiang-hao.com'
+SITEURL = u'https://jiang-hao.com'
 TIMEZONE = 'Asia/Shanghai'
 
 # 生成配置
@@ -28,7 +28,7 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'basename'
 DEFAULT_DATE = 'fs'
-DIRECT_TEMPLATES = ['categories', 'authors', 'archives']
+DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
 
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
