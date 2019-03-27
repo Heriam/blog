@@ -70,12 +70,6 @@ ARCHIVES_URL = 'articles/index.html'
 ARCHIVES_SAVE_AS = ARCHIVES_URL
 DEFAULT_LANG = u'zh_CN'
 DEFAULT_CATEGORY = 'uncategorized'
-SLUG_REGEX_SUBSTITUTIONS = [
-(r'[^ws-]', ''), # remove non-alphabetical/whitespace/'-' chars
-(r'(?u)As*', ''), # strip leading whitespace
-(r'(?u)s*Z', ''), # strip trailing whitespace
-(r'[-s]+', '-'), # reduce multiple whitespace or '-' to single '-'
-]
 
 # Feed generation is usually not desired when developing
 FEED_DOMAIN = None
