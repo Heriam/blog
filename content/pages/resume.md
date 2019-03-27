@@ -1,4 +1,4 @@
-Title: resume
+Title: Resume
 Date: 2018-02-25
 template: page
 
