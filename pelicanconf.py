@@ -45,7 +45,7 @@ PLUGIN_PATHS = []
 PLUGINS = []
 
 # URL设置
-RELATIVE_URLS = False
+RELATIVE_URLS = True
 FILENAME_METADATA = '(?P<slug>.*)'
 DRAFT_URL = 'drafts/articles/{slug}.html'
 DRAFT_SAVE_AS = DRAFT_URL
