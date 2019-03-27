@@ -28,7 +28,7 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'basename'
 DEFAULT_DATE = 'fs'
-# DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
+DIRECT_TEMPLATES = ['categories', 'authors', 'archives']
 
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
