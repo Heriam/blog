@@ -26,7 +26,7 @@ EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
         'extra/favicon.ico': {'path': 'favicon.ico'},
         }
-SLUGIFY_SOURCE = 'basename'
+SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
 DIRECT_TEMPLATES = ['categories', 'authors', 'archives']
 
