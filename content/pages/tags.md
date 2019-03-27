@@ -1,6 +1,7 @@
 Title: Tags
 Date: 2013-04-18
 Template: tags
+url: tags/
 save_as: tags/index.html
 
 
