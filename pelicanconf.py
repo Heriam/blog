@@ -19,8 +19,8 @@ DELETE_OUTPUT_DIRECTORY = True
 OUTPUT_RETENTION = [".git"]
 USE_FOLDER_AS_CATEGORY = True
 OUTPUT_SOURCES = False
-READERS = {'html': None}
-TYPOGRIFY = False
+# READERS = {'html': None}
+# TYPOGRIFY = True
 STATIC_PATHS = ['extra']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
@@ -28,7 +28,7 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'basename'
 DEFAULT_DATE = 'fs'
-DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
+# DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
 
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
