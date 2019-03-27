@@ -28,7 +28,7 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'basename'
 DEFAULT_DATE = 'fs'
-DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
+DIRECT_TEMPLATES = ['categories', 'authors', 'archives']
 
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
@@ -36,7 +36,7 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 10
-# PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}
+PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None}
 NEWEST_FIRST_ARCHIVES = True
 
 # 主题/插件
