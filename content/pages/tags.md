@@ -5,4 +5,4 @@ url: tags/
 save_as: tags/index.html
 
 
-<div id="tagcloud" style="width: 80%; align-self: center;"></div>
+<div id="tagcloud" style="width: 80%; align-self: center;" />
