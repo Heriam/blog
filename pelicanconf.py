@@ -20,7 +20,7 @@ OUTPUT_RETENTION = [".git"]
 USE_FOLDER_AS_CATEGORY = True
 OUTPUT_SOURCES = False
 READERS = {'html': None}
-TYPOGRIFY = True
+TYPOGRIFY = False
 STATIC_PATHS = ['extra']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
