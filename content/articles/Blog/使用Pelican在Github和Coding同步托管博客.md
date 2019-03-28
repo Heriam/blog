@@ -1,6 +1,6 @@
 title: 使用Pelican在Github(国外)和Coding(国内)同步托管博客
 date: 2018-02-05
-tags: Pelican, Github, Blog
+tags: Pelican, Git
 template: article
 
 **介绍：** Github Pages 禁用了百度爬虫，因此百度搜索引擎经常抓取不到在Github上托管的博客链接。本文介绍一种可行的解决方法：     

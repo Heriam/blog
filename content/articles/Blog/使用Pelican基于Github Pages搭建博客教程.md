@@ -1,6 +1,6 @@
 title: 使用Pelican基于Github Pages搭建博客教程
 date: 2018-02-05
-tags: Pelican, Blog, Github
+tags: Pelican
 template: article
 
 **操作系统：**Mac OS / Linux      

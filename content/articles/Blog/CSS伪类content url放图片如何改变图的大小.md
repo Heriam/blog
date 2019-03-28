@@ -1,5 +1,6 @@
 Title: CSS伪类content: url放图片如何改变图的大小
 Date: 2017-02-21
+Tags: CSS
 
 遇到过一个问题：用before after 之类的伪类的content里放一个图的链接，如何去改图的大小？比如：
 

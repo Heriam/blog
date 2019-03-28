@@ -1,5 +1,6 @@
 Title: 网页 BacktoTop 返回顶部按钮的简单实现
 Date:2017-06-30
+Tags: HTML, JavaScript, CSS
 
 在较长的网页页面中往往需要一个固定漂浮在显示屏右下侧位置的返回顶部按钮。
 

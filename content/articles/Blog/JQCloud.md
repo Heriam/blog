@@ -1,6 +1,6 @@
 Title: JQCloud: 一个前端生成美化标签云的简单JQuery插件
 Date: 2018-02-25
-Tags: JQCloud, JQuery, TagCloud
+Tags: JQuery, JavaScript, HTML
 
 因为博客需要，发现了一个生成美化简约风格的标签云的JQuery插件。
 官网地址：[http://mistic100.github.io/jQCloud/index.html](http://mistic100.github.io/jQCloud/index.html)
@@ -32,3 +32,8 @@ Tags: JQCloud, JQuery, TagCloud
 ```
 
 需要注意的是要包含标签云的div模块需要显示指定width和height，否则需要在JavaScript中进行相关设置。
+踩坑1：因为要基于JQuery，注意引用的JQuery库可用。由于之前引用的是外网谷歌的库，国内被墙导致标签云一直没有刷出来，后来换成了bootcdn的JQuery库就成功了：
+
+```HTML
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+```
