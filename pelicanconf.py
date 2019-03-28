@@ -36,7 +36,6 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 10
-PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None, 'archives': None}
 NEWEST_FIRST_ARCHIVES = True
 
 # 主题/插件
