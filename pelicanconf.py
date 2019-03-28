@@ -7,6 +7,7 @@ AUTHOR = u'Justin C.'
 SITENAME = u'Heriam'
 SITEURL = u'https://jiang-hao.com'
 TIMEZONE = 'Asia/Shanghai'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d %a'
 
 # 生成配置
 PATH = 'content'
@@ -29,6 +30,22 @@ EXTRA_PATH_METADATA = {
 SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
 DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
+# Markdown扩展
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+        'markdown.extensions.tables': {  # 表格
+        },
+        'markdown.extensions.toc': {     # 目录，设置看https://python-markdown.github.io/extensions/toc/
+            'title': 'TOC:',      # 目录题头
+            'toc_depth': 3, 
+        },
+    },
+    'output_format': 'html5',
+}
+
 
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
