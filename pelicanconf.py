@@ -30,6 +30,7 @@ EXTRA_PATH_METADATA = {
 SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
 DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
+
 # Markdown扩展
 MARKDOWN = {
     'extension_configs': {
@@ -39,7 +40,7 @@ MARKDOWN = {
         'markdown.extensions.tables': {  # 表格
         },
         'markdown.extensions.toc': {     # 目录，设置看https://python-markdown.github.io/extensions/toc/
-            'title': 'TOC:',      # 目录题头
+            'title': 'Table of Contents',      # 目录题头
             'toc_depth': 3, 
         },
     },
@@ -57,8 +58,8 @@ NEWEST_FIRST_ARCHIVES = True
 
 # 主题/插件
 THEME = 'tuxlite_tbs'
-PLUGIN_PATHS = []
-PLUGINS = []
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['extract_toc']
 
 # URL设置
 RELATIVE_URLS = True
