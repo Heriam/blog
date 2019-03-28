@@ -2,3 +2,5 @@
 /pelican-themes/
 /pelican-plugins/
 *.pyc
+.DS_Store
+content/.DS_Store
