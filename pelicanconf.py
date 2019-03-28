@@ -109,9 +109,9 @@ SOCIAL = (('Facebook','https://www.facebook.com/hao.zju'),
           )
 		  
 MENUITEMS = (
-  ('Archives','/articles'),
-  ('Tags','/tags'),
-  ('Publications','/pages/publications'),
+  ('存档','/articles'),
+  ('标签','/tags'),
+  ('发表','/pages/publications'),
 )
 
 
