@@ -41,7 +41,6 @@ MARKDOWN = {
         },
         'markdown.extensions.toc': {     # 目录，设置看https://python-markdown.github.io/extensions/toc/
             'title': 'Table of Contents',      # 目录题头
-            'toc_depth': 3, 
         },
     },
     'output_format': 'html5',
