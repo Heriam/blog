@@ -33,7 +33,7 @@ DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
 
 # Markdown扩展
 MARKDOWN = {
-	'extensions' : ['codehilite', 'extra', 'latex', 'toc'],
+	'extensions' : ['codehilite', 'extra', 'toc'],
     'extension_configs': {
         'markdown.extensions.codehilite': {'css_class': 'highlight'},
         'markdown.extensions.extra': {},
