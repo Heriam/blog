@@ -4,18 +4,6 @@ Template: page
 save_as: index.html
 
 
-<div style="display: inline-block; margin: 0px 0px 15px 20px;">   
-<img src="https://i.loli.net/2019/03/28/5c9ceab15146f.png" alt="photo.png" title="photo.png" />
-</div>
-
-<div style="display: inline-block; font-family: Times New Roman; margin: 0px 0px 0px 20px;">   
-<font size=6>Hao JIANG</font><br><br>
-<I>Research & Development Engineer, New H3C Technologies Co., Limited </I><br><br>
-<b>Email:</b>&nbsp;jiang DOT haoa AT h3c DOT com<br>   
-<b>Address:</b>&nbsp;466 Changhe Road, Binjiang District, 310052 Hangzhou<br><br>       
-</div>
-
-<hr />
 <p><br>
 <font face = "Times New Roman">Hao serves as an R&D Engineer at <a target="_blank" href="http://www.h3c.com/en/">New H3C Technologies</a>. In early 2017, He completed <a target="_blank" href="http://www.eitdigital.eu">EIT Digital</a> Dual Master Degree Programme with a major of <em>Internet Technology and Architecture</em> at <a target="_blank" href="http://www.kth.se">KTH Royal Institute of Technology</a> and a specialization of <em>Internet of Things(IoT)</em> at <a target="_blank" href="https://www.imt-atlantique.fr/en">IMT Atlantique</a>. He also minored in <em>ICT Innovation and Entrepreneurship</em> during his Master studies.</font>
 <br><br>
