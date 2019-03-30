@@ -75,7 +75,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 github: publish
-	cd $(OUTPUTDIR) ; git add . ;  git commit -am 'by Justin C.' ; git push github master:master; git push coding master:master
+	cd $(OUTPUTDIR) ; git add . ;  git commit -am 'by Justin Time' ; git push github master:master; git push coding master:master
 
 
 .PHONY: html help clean regenerate serve serve-global devserver publish github
