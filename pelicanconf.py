@@ -116,13 +116,18 @@ LINKS = (('iMooC', 'http://www.imooc.com/'),
          )
 
 # Social widget
-SOCIAL_WIDGET_NAME = 'SOCIAL'
-SOCIAL = (('Facebook','https://www.facebook.com/hao.zju'),
-		  ('Weibo', 'http://weibo.com/207575725'),
-          ('Linkedin', 'http://www.linkedin.com/in/haochiang'),
-          ('Github','https://github.com/Heriam'),
-          ('Qyer', 'http://www.qyer.com/u/5831110/plan')
-          )
+SOCIALITEMS =  (
+  ('Facebook','https://www.facebook.com/hao.zju'),
+  ('微博', 'http://weibo.com/207575725'),
+  ('Linkedin', 'http://www.linkedin.com/in/haochiang'),
+  ('Github','https://github.com/Heriam'),
+  ('穷游', 'http://www.qyer.com/u/5831110/plan'),
+  ('Email', 'mailto:jiang.haoa@h3c.com'),
+  ('Instagram','https://www.instagram.com/heriam_j/'),
+  ('ResearchGate','https://www.researchgate.net/profile/Hao_Jiang59'),
+  ('知乎','https://www.zhihu.com/people/justin-time'),
+  ('OSChina','https://my.oschina.net/u/4108498'),
+  )
 		  
 MENUITEMS = (
   ('Archives','/articles'),
