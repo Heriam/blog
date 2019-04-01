@@ -121,7 +121,6 @@ SOCIALITEMS =  (
   ('微博', 'http://weibo.com/207575725'),
   ('Linkedin', 'http://www.linkedin.com/in/haochiang'),
   ('Github','https://github.com/Heriam'),
-  ('穷游', 'http://www.qyer.com/u/5831110/plan'),
   ('Email', 'mailto:jiang.haoa@h3c.com'),
   ('Instagram','https://www.instagram.com/heriam_j/'),
   ('ResearchGate','https://www.researchgate.net/profile/Hao_Jiang59'),
