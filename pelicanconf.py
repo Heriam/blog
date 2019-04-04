@@ -106,16 +106,7 @@ AUTHOR_FEED_RSS = None
 TAG_FEED_ATOM = None
 TAG_FEED_RSS = None
 
-# Blogroll
-LINKS_WIDGET_NAME = 'LINKS'
-LINKS = (('iMooC', 'http://www.imooc.com/'),
-         ('w3schools', 'http://www.w3schools.com/'),
-         ('Cisco Lab', 'https://developer.cisco.com/'),
-         ('Coursera', 'https://www.coursera.org/'),
-         ('RUNOOB', 'http://www.runoob.com/')
-         )
-
-# Social widget
+# 页面模板
 SOCIALITEMS =  (
   ('Facebook','https://www.facebook.com/hao.zju'),
   ('微博', 'http://weibo.com/207575725'),
@@ -134,5 +125,6 @@ MENUITEMS = (
   ('Publications','/pages/publications'),
 )
 
-
+#网站管理
+GOOGLE_ANALYTICS = 'UA-137721527-1'
 
