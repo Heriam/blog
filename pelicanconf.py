@@ -135,6 +135,6 @@ SITEMAP = {
         "articles": "always",
         "indexes": "always",
         "pages": "always",
-    }
+    },
 	'exclude': ['drafts/', 'categories/', 'tags/', 'authors/', 'theme/']
 }
