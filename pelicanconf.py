@@ -46,7 +46,6 @@ MARKDOWN = {
     'output_format': 'html5',
 }
 
-
 # 页面显示
 SUMMARY_MAX_LENGTH = 50
 DISPLAY_PAGES_ON_MENU = False
@@ -54,11 +53,6 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 10
 NEWEST_FIRST_ARCHIVES = True
-
-# 主题/插件
-THEME = 'tuxlite_tbs'
-PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['extract_toc']
 
 # URL设置
 RELATIVE_URLS = True
@@ -126,5 +120,21 @@ MENUITEMS = (
 )
 
 #网站管理
+THEME = 'tuxlite_tbs'
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['extract_toc',"sitemap"]
 GOOGLE_ANALYTICS = 'UA-137721527-1'
-
+SITEMAP = {
+    "format": "xml",
+    "priorities": {
+        "articles": 0.7,
+        "indexes": 0.1,
+        "pages": 0.2,
+    },
+    "changefreqs": {
+        "articles": "always",
+        "indexes": "always",
+        "pages": "always",
+    }
+	'exclude': ['drafts/', 'categories/', 'tags/', 'authors/', 'theme/']
+}
