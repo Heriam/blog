@@ -12,4 +12,4 @@ Date: 2013-04-18
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:searchresults-only linkTarget="_self" adclient='pub-8958123988900703'></gcse:searchresults-only>
+<gcse:searchresults-only linkTarget="_self" adclient='pub-8958123988900703'>Loading...</gcse:searchresults-only>
