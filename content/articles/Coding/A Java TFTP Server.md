@@ -2,7 +2,7 @@ title: A Java TFTP Server
 date: 2019-04-09
 tags: Java, TFTP
 
-[toc]
+[TOC]
 
 ###简介
 
