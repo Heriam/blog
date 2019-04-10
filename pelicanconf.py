@@ -86,7 +86,6 @@ SLUG_REGEX_SUBSTITUTIONS = [
         (r'(?u)\A\s*', ''),  # strip leading whitespace
         (r'(?u)\s*\Z', ''),  # strip trailing whitespace
         (r'[-\s]+', '-'),  # reduce multiple whitespace or '-' to single '-'
-		(r'\w', '-'),
 		(r' ', '-'),
     ]
 
