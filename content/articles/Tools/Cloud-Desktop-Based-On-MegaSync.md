@@ -16,4 +16,4 @@ Using MEGASync, you can synchronize your desktop among multiple devcies and acce
 - fast transfers with end-to-end encryption   
 - folder synchronization among multiple devices
 
-As we can see, a very useful function of MEGASync is to synchronize folders among multiple devices. But it becomes more interesting when we use it to synchronize desktops()
+As we can see, a very useful function of MEGASync is to synchronize folders among multiple devices. But it would become more interesting when we use it to put our desktop in the cloud.
