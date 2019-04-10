@@ -55,6 +55,7 @@ DEFAULT_PAGINATION = 10
 NEWEST_FIRST_ARCHIVES = True
 
 # URL设置
+SLUGIFY_SOURCE = 'basename'
 SLUG_REGEX_SUBSTITUTIONS = [
         (r'[^\w\s-]', ''),  # remove non-alphabetical/whitespace/'-' chars
         (r'(?u)\A\s*', ''),  # strip leading whitespace
