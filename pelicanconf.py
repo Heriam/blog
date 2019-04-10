@@ -85,8 +85,7 @@ SLUG_REGEX_SUBSTITUTIONS = [
         (r'[^\w\s-]', ''),  # remove non-alphabetical/whitespace/'-' chars
         (r'(?u)\A\s*', ''),  # strip leading whitespace
         (r'(?u)\s*\Z', ''),  # strip trailing whitespace
-        (r'[-\s]+', '-'),  # reduce multiple whitespace or '-' to single '-'
-		(r'\s', ''),
+        (r'/\W+/g', '-'),  # reduce multiple whitespace or '-' to single '-'
     ]
 
 # Feed generation is usually not desired when developing
