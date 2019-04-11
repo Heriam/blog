@@ -5,7 +5,7 @@ date: 2019-04-11
 
 ### 1. [Skill Tree](https://github.com/TeamStuQ/skill-map)
 
-<div id="skillTree" style="width:100%;height:auto;"></div>
+<div id="skillTree" style="width:100%;min-height:100%;"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('skillTree'));
     myChart.showLoading();
