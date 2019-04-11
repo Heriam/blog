@@ -49,9 +49,13 @@ date: 2019-04-11
 
 ##### 1.6.1 Attack & Defense
 
-### 2. Weekly Schedule
+### 2. Weekly Schedule   
 
-<table style="width: 100%;">
+   
+
+
+
+<table style="width: 100%;font-size: 13px;">
 <thead>
 <tr>
 <th align="center">Slot</th>
