@@ -5,17 +5,25 @@ date: 2019-04-11
 
 ### 1. [Skill Tree](https://github.com/TeamStuQ/skill-map)
 
-<div id="skillTree" style="width:100%;min-height:10vh;"></div>
+<div id="skillTree" style="width:100%;"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('skillTree'));
+    var myChartContainer = document.getElementById('skillTree');
+    
+    var resizeContainer = function () {
+        myChartContainer.style.width = window.innerWidth+'px';
+        myChartContainer.style.height = window.innerHeight+'px';
+    };
+    resizeContainer();
+    var myChart = echarts.init(myChartContainer);
     myChart.showLoading();
+    
     $.get('../doc/skillTree.json', function (data) {
         myChart.hideLoading();
 
         echarts.util.each(data.children, function (datum, index) {
             index % 2 === 0 && (datum.collapsed = true);
         });
-
+    
         myChart.setOption(option = {
             tooltip: {
                 trigger: 'item',
@@ -24,16 +32,16 @@ date: 2019-04-11
             series: [
                 {
                     type: 'tree',
-
+    
                     data: [data],
-
+    
                     top: '1%',
                     left: '7%',
                     bottom: '1%',
                     right: '20%',
-
+    
                     symbolSize: 7,
-
+    
                     label: {
                         normal: {
                             position: 'bottom',
@@ -42,7 +50,7 @@ date: 2019-04-11
                             fontSize: 12
                         }
                     },
-
+    
                     leaves: {
                         label: {
                             normal: {
@@ -53,7 +61,7 @@ date: 2019-04-11
                             }
                         }
                     },
-
+    
                     expandAndCollapse: true,
                     animationDuration: 550,
                     animationDurationUpdate: 750
@@ -61,55 +69,12 @@ date: 2019-04-11
             ]
         });
     });
+    
+    window.onresize = function () {
+        resizeContainer();
+        myChart.resize();
+    };
 </script>
-
-
-
-
-
-#### 1.1 Operations
-
-##### 1.1.1 Linux
-
-##### 1.1.2 Database
-
-#### 1.2 Programming
-
-##### 1.2.1 Java
-
-- Design Pattern
-  - 《设计模式之禅》
-- Concurrency/Multi-threading
-  - 《Java并发编程的艺术》
-  - 《Java并发编程实战》
-- Spring
-- Mybatis
-
-##### 1.2.2 Python
-
-##### 1.2.3 Algorithms & Data Structure
-
-#### 1.3 Big Data
-
-##### 1.3.1 Flink
-
-##### 1.3.2 Hadoop
-
-#### 1.4 AI
-
-##### 1.4.1 Machine Learning
-
-#### 1.5 Cloud
-
-##### 1.5.1 OpenStack
-
-##### 1.5.2 Container
-
-##### 1.5.3 MicroService
-
-#### 1.6 Security
-
-##### 1.6.1 Attack & Defense
 
 ### 2. Weekly Schedule
 
