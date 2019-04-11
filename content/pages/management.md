@@ -18,10 +18,6 @@ date: 2019-04-11
     
     $.get('../doc/skillTree.json', function (data) {
         myChart.hideLoading();
-
-        echarts.util.each(data.children, function (datum, index) {
-            index % 2 === 0 && (datum.collapsed = true);
-        });
     
         myChart.setOption(option = {
             tooltip: {
@@ -34,18 +30,18 @@ date: 2019-04-11
     
                     data: [data],
     
-                    top: '1%',
-                    left: '7%',
-                    bottom: '1%',
-                    right: '20%',
+                    top: '0%',
+                    left: '0%',
+                    bottom: '0%',
+                    right: '25%',
     
                     symbolSize: 7,
     
                     label: {
                         normal: {
-                            position: 'bottom',
+                            position: 'left',
                             verticalAlign: 'middle',
-                            align: 'top',
+                            align: 'right',
                             fontSize: 12
                         }
                     },
