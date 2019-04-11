@@ -30,9 +30,9 @@ date: 2019-04-11
     
                     data: [data],
     
-                    top: '0%',
-                    left: '0%',
-                    bottom: '0%',
+                    top: '1%',
+                    left: '10%',
+                    bottom: '1%',
                     right: '25%',
     
                     symbolSize: 7,
