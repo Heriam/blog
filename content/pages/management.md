@@ -10,7 +10,6 @@ date: 2019-04-11
     var myChartContainer = document.getElementById('skillTree');
     
     var resizeContainer = function () {
-        myChartContainer.style.width = window.innerWidth+'px';
         myChartContainer.style.height = window.innerHeight+'px';
     };
     resizeContainer();
