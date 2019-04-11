@@ -22,10 +22,11 @@ USE_FOLDER_AS_CATEGORY = True
 OUTPUT_SOURCES = False
 READERS = {'html': None}
 TYPOGRIFY = False
-STATIC_PATHS = ['extra']
+STATIC_PATHS = ['extra', 'doc']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
         'extra/favicon.ico': {'path': 'favicon.ico'},
+		'doc/skillTree.json': {'path': 'doc/skillTree.json'},
         }
 SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
