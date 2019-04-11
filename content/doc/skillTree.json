@@ -48,7 +48,7 @@
 			]
 			},
 			{
-			"name": "Data Structure&Algorithms",
+			"name": "Data Structure&Algorithms"
 			}
 		]
 		},
@@ -56,10 +56,10 @@
 		"name": "Big Data",
 		"children": [
 			{
-			"name": "Flink",
+			"name": "Flink"
 			},
 			{
-			"name": "Hadoop",
+			"name": "Hadoop"
 			}
 		]
 		},
@@ -67,7 +67,7 @@
 		"name": "AI",
 		"children": [
 			{
-			"name": "Machine Learning",
+			"name": "Machine Learning"
 			}
 		]
 		},
@@ -75,13 +75,13 @@
 		"name": "Cloud",
 		"children": [
 			{
-			"name": "OpenStack",
+			"name": "OpenStack"
 			},
 			{
-			"name": "Container",
+			"name": "Container"
 			},
 			{
-			"name": "MicroService",
+			"name": "MicroService"
 			}
 		]
 		},
@@ -89,7 +89,7 @@
 		"name": "Security",
 		"children": [
 			{
-			"name": "Network Attack&Defense",
+			"name": "Network Attack&Defense"
 			}
 		]
 		}
