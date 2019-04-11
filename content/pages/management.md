@@ -1,11 +1,8 @@
 title: Self Management
 date: 2019-04-11
-
-<link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/reset.css"> <!-- CSS reset -->
-<link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/style.css"> <!-- Resource style -->
-<script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/modernizr.js"></script>
-<script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/main.js"></script>
-
+<script>
+	document.write('<link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/reset.css"><link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/style.css"><script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/modernizr.js"><\/script><script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/main.js"><\/script>');
+</script>
 
 <div class="cd-schedule loading">
 	<div class="timeline">
