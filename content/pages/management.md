@@ -1,3 +1,6 @@
+title: Self Management
+date: 2019-04-11
+
 <link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/reset.css"> <!-- CSS reset -->
 <link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/style.css"> <!-- Resource style -->
 <script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/modernizr.js"></script>
