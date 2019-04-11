@@ -1,14 +1,14 @@
 title: Self Management
 date: 2019-04-11
 
-[TOC]
+
 
 ### 1. [Skill Tree](https://github.com/TeamStuQ/skill-map)
 
 <div id="skillTree" style="width:100%;"></div>
 <script type="text/javascript">
     var myChartContainer = document.getElementById('skillTree');
-    
+
     var resizeContainer = function () {
         myChartContainer.style.height = window.innerHeight+'px';
     };
@@ -75,7 +75,7 @@ date: 2019-04-11
 
 <br />
 
-<table style="width: 100%;font-size: 13px;line-height:30px;">
+<table style="width: 100%;font-size: 13px;line-height:24px;">
 <thead>
 <tr>
 <th align="center">Slot</th>
@@ -431,3 +431,4 @@ date: 2019-04-11
 </tr>
 </tbody>
 </table>
+

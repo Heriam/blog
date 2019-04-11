@@ -5,12 +5,10 @@
 		"name": "Operations",
 		"children": [
 			{
-			"name": "Linux",
-			"value": "10%"
+			"name": "Linux"
 			},
 			{
-			"name": "Database",
-			"value": "10%"
+			"name": "Database"
 			}
 		]
 		},
@@ -21,20 +19,16 @@
 			"name": "Java",
 			"children": [
 				{
-				"name": "Design Pattern",
-				"value": "10%"
+				"name": "Design Pattern"
 				},
 				{
-				"name": "Concurrency/Multi-Threading",
-				"value": "10%"
+				"name": "Concurrency/Multi-Threading"
 				},
 				{
-				"name": "Spring",
-				"value": "0%"
+				"name": "Spring"
 				},
 				{
-				"name": "MyBatis",
-				"value": "0%"
+				"name": "MyBatis"
 				}
 			]
 			},
@@ -42,8 +36,7 @@
 			"name": "Python",
 			"children": [
 				{
-				"name": "Concurrency/Multi-Threading",
-				"value": "0%"
+				"name": "Concurrency/Multi-Threading"
 				}
 			]
 			},
