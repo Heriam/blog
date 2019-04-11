@@ -9,7 +9,7 @@ date: 2019-04-11
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('skillTree'));
     myChart.showLoading();
-    $.get('https://raw.githubusercontent.com/Heriam/images/master/in-article/skillTree.json', function (data) {
+    $.get('doc/skillTree.json', function (data) {
         myChart.hideLoading();
 
         echarts.util.each(data.children, function (datum, index) {
