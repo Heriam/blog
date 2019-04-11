@@ -5,7 +5,7 @@ date: 2019-04-11
 
 ### 1. [Skill Tree](https://github.com/TeamStuQ/skill-map)
 
-<div id="skillTree" style="width:100%;height:550px;"></div>
+<div id="skillTree" style="width:100%;"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('skillTree'));
     myChart.showLoading();
@@ -36,10 +36,10 @@ date: 2019-04-11
 
                     label: {
                         normal: {
-                            position: 'left',
+                            position: 'bottom',
                             verticalAlign: 'middle',
-                            align: 'right',
-                            fontSize: 9
+                            align: 'top',
+                            fontSize: 12
                         }
                     },
 
@@ -48,7 +48,8 @@ date: 2019-04-11
                             normal: {
                                 position: 'right',
                                 verticalAlign: 'middle',
-                                align: 'left'
+                                align: 'left',
+                                fontSize: 12
                             }
                         }
                     },
