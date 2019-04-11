@@ -1,193 +1,88 @@
 title: Self Management
 date: 2019-04-11
-<script>
-	document.write('<link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/reset.css"><link rel="stylesheet" href="https://raw.githubusercontent.com/Heriam/schedule-template/master/css/style.css"><script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/modernizr.js"><\/script><script src="https://raw.githubusercontent.com/Heriam/schedule-template/master/js/main.js"><\/script>');
-</script>
 
-<div class="cd-schedule loading">
-	<div class="timeline">
-		<ul>
-			<li><span>09:00</span></li>
-			<li><span>09:30</span></li>
-			<li><span>10:00</span></li>
-			<li><span>10:30</span></li>
-			<li><span>11:00</span></li>
-			<li><span>11:30</span></li>
-			<li><span>12:00</span></li>
-			<li><span>12:30</span></li>
-			<li><span>13:00</span></li>
-			<li><span>13:30</span></li>
-			<li><span>14:00</span></li>
-			<li><span>14:30</span></li>
-			<li><span>15:00</span></li>
-			<li><span>15:30</span></li>
-			<li><span>16:00</span></li>
-			<li><span>16:30</span></li>
-			<li><span>17:00</span></li>
-			<li><span>17:30</span></li>
-			<li><span>18:00</span></li>
-		</ul>
-	</div> <!-- .timeline -->
+### [Skill Tree](https://github.com/TeamStuQ/skill-map)
 
-	<div class="events">
-		<ul>
-			<li class="events-group">
-				<div class="top-info"><span>Monday</span></div>
+#### Operations
 
-				<ul>
-					<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-						<a href="#0">
-							<em class="event-name">Abs Circuit</em>
-						</a>
-					</li>
+##### Linux
 
-					<li class="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
-						<a href="#0">
-							<em class="event-name">Rowing Workout</em>
-						</a>
-					</li>
+##### Database
 
-					<li class="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
-						<a href="#0">
-							<em class="event-name">Yoga Level 1</em>
-						</a>
-					</li>
-				</ul>
-			</li>
+#### Programming
 
-			<li class="events-group">
-				<div class="top-info"><span>Tuesday</span></div>
+##### Java
 
-				<ul>
-					<li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
-						<a href="#0">
-							<em class="event-name">Rowing Workout</em>
-						</a>
-					</li>
+- Design Pattern
+  - 《设计模式之禅》
+- Concurrency/Multi-threading
+  - 《Java并发编程的艺术》
+  - 《Java并发编程实战》
+- Spring
+- Mybatis
 
-					<li class="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-4">
-						<a href="#0">
-							<em class="event-name">Restorative Yoga</em>
-						</a>
-					</li>
+##### Python
 
-					<li class="single-event" data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1">
-						<a href="#0">
-							<em class="event-name">Abs Circuit</em>
-						</a>
-					</li>
+##### Algorithms & Data Structure
 
-					<li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
-						<a href="#0">
-							<em class="event-name">Yoga Level 1</em>
-						</a>
-					</li>
-				</ul>
-			</li>
+#### Big Data
 
-			<li class="events-group">
-				<div class="top-info"><span>Wednesday</span></div>
+##### Flink
 
-				<ul>
-					<li class="single-event" data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4">
-						<a href="#0">
-							<em class="event-name">Restorative Yoga</em>
-						</a>
-					</li>
+##### Hadoop
 
-					<li class="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
-						<a href="#0">
-							<em class="event-name">Yoga Level 1</em>
-						</a>
-					</li>
+#### AI
 
-					<li class="single-event" data-start="12:00" data-end="13:45"  data-content="event-rowing-workout" data-event="event-2">
-						<a href="#0">
-							<em class="event-name">Rowing Workout</em>
-						</a>
-					</li>
+##### Machine Learning
 
-					<li class="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
-						<a href="#0">
-							<em class="event-name">Yoga Level 1</em>
-						</a>
-					</li>
-				</ul>
-			</li>
+#### Cloud
 
-			<li class="events-group">
-				<div class="top-info"><span>Thursday</span></div>
+##### OpenStack
 
-				<ul>
-					<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-						<a href="#0">
-							<em class="event-name">Abs Circuit</em>
-						</a>
-					</li>
+##### Container
 
-					<li class="single-event" data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4">
-						<a href="#0">
-							<em class="event-name">Restorative Yoga</em>
-						</a>
-					</li>
+##### MicroService
 
-					<li class="single-event" data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1">
-						<a href="#0">
-							<em class="event-name">Abs Circuit</em>
-						</a>
-					</li>
+#### Security
 
-					<li class="single-event" data-start="17:00" data-end="18:30"  data-content="event-rowing-workout" data-event="event-2">
-						<a href="#0">
-							<em class="event-name">Rowing Workout</em>
-						</a>
-					</li>
-				</ul>
-			</li>
+##### Attack & Defense
 
-			<li class="events-group">
-				<div class="top-info"><span>Friday</span></div>
+### Weekly Schedule
 
-				<ul>
-					<li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
-						<a href="#0">
-							<em class="event-name">Rowing Workout</em>
-						</a>
-					</li>
+| Slot  |                     Sunday                     |                     Monday                      |                     Tuesday                     |                    Wednesday                    |                    Thursday                     |                  Friday                   |                    Saturday                    |
+| :---: | :--------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------: | :--------------------------------------------: |
+| 06:00 |                     getup                      |                      getup                      |                      getup                      |                      getup                      |                      getup                      |                   getup                   |                     getup                      |
+| 06:30 |   <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    | <span style="color: blue">**Java**</span> |   <span style="color: blue">**Java**</span>    |
+| 07:00 |   <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    | <span style="color: blue">**Java**</span> |   <span style="color: blue">**Java**</span>    |
+| 07:30 |   <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    |    <span style="color: blue">**Java**</span>    | <span style="color: blue">**Java**</span> |   <span style="color: blue">**Java**</span>    |
+| 08:00 | <span style="color: red">**Algorithms**</span> |                       OTR                       |                       OTR                       |                       OTR                       |                       OTR                       |                    OTR                    | <span style="color: red">**Algorithms**</span> |
+| 08:30 | <span style="color: red">**Algorithms**</span> |                       OTR                       |                       OTR                       |                       OTR                       |                       OTR                       |                    OTR                    | <span style="color: red">**Algorithms**</span> |
+| 09:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 09:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 10:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 10:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 11:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 11:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 12:00 |                                                |                       OTR                       |                       OTR                       |                       OTR                       |                       OTR                       |                    OTR                    |                      OTR                       |
+| 12:30 |                                                |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     | <span style="color: green">**AI**</span>  |    <span style="color: green">**AI**</span>    |
+| 13:00 |                                                |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     |    <span style="color: green">**AI**</span>     | <span style="color: green">**AI**</span>  |    <span style="color: green">**AI**</span>    |
+| 13:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 14:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 14:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 15:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 15:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 16:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 16:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 17:00 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 17:30 |                                                |                                                 |                                                 |                                                 |                                                 |                                           |                                                |
+| 18:00 |                                                |                       OTR                       |                       OTR                       |                       OTR                       |                       OTR                       |                    OTR                    |                      OTR                       |
+| 18:30 |                                                |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |                                           |                                                |
+| 19:00 |                                                |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |                                           |                                                |
+| 19:30 |                                                |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |                                           |                                                |
+| 20:00 |                                                |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |  <span style="color: orange">**Cloud**</span>   |                                           |                                                |
+| 20:30 |                                                |                       OTR                       |                       OTR                       |                       OTR                       |                       OTR                       |                                           |                                                |
+| 21:00 |                                                | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> |                                           |                                                |
+| 21:30 |                                                | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> |                                           |                                                |
+| 22:00 |                                                | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> | <span style="color: purple">**Big Data**</span> |                                           |                                                |
+| 22:30 |                      SHW                       |                       SHW                       |                       SHW                       |                       SHW                       |                       SHW                       |                    SHW                    |                      SHW                       |
 
-					<li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
-						<a href="#0">
-							<em class="event-name">Abs Circuit</em>
-						</a>
-					</li>
-
-					<li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
-						<a href="#0">
-							<em class="event-name">Yoga Level 1</em>
-						</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-
-	<div class="event-modal">
-		<header class="header">
-			<div class="content">
-				<span class="event-date"></span>
-				<h3 class="event-name"></h3>
-			</div>
-
-			<div class="header-bg"></div>
-		</header>
-
-		<div class="body">
-			<div class="event-info"></div>
-			<div class="body-bg"></div>
-		</div>
-
-		<a href="#0" class="close">Close</a>
-	</div>
-
-	<div class="cover-layer"></div>
-</div> <!-- .cd-schedule -->
