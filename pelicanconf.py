@@ -125,6 +125,7 @@ MENUITEMS = (
   ('Archives','/articles'),
   ('Tags','/tags'),
   ('Publications','/pages/publications'),
+  ('Self-Management','/pages/management')
 )
 
 #网站管理
