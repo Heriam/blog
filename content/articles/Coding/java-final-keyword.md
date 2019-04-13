@@ -143,32 +143,32 @@ GeeksForGeeks
 
 1. 如上所述，*final*变量不能重新赋值，这样做会抛出编译时错误。
 
-   ```java
+```java
    // Java program to demonstrate re-assigning 
    // final variable will throw compile-time error 
    
    class Gfg 
    { 
-   	static final int CAPACITY = 4; 
-   	
-   	public static void main(String args[]) 
-   	{ 
-   		// re-assigning final variable 
-   		// will throw compile-time error 
-   		CAPACITY = 5; 
-   	} 
+     static final int CAPACITY = 4; 
+   
+     public static void main(String args[]) 
+     { 
+       // re-assigning final variable 
+       // will throw compile-time error 
+       CAPACITY = 5; 
+     } 
    } 
-   ```
+```
 
    输出：
 
-   ```
+```
    Compiler Error: cannot assign a value to final variable CAPACITY
-   ```
+```
 
 2. 当在方法/构造函数/块中创建*final*变量时，它被称为局部*final*变量，并且必须在创建它的位置初始化一次。参见下面的局部*final*变量程序：
 
-   ```java
+```java
    // Java program to demonstrate 
    // local final variable 
    
@@ -184,12 +184,12 @@ GeeksForGeeks
    		System.out.println(i); 
    	} 
    } 
-   ```
+```
 
    输出：
 
-   ```
+```
    20
-   ```
+```
 
 3. 注意C ++ *const*变量和Java *final*变量之间的区别。声明时，必须为C ++中的const变量赋值。对于Java中的*final*变量，正如我们在上面的示例中所看到的那样，可以稍后赋值，但只能分配一次。
