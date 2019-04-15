@@ -227,6 +227,7 @@ GeeksForGeeks
 当使用*final*关键字声明一个类时，它被称为*final*类。被声明为*final*的类不能被扩展（继承）。*final*类有两种用途：
 
 1. 一个是彻底防止被[继承](https://www.geeksforgeeks.org/inheritance-in-java/)，因为*final*类不能被扩展。例如，所有[包装类](https://www.geeksforgeeks.org/wrapper-classes-java/)如[Integer](https://www.geeksforgeeks.org/java-lang-integer-class-java/)，[Float](https://www.geeksforgeeks.org/java-lang-float-class-in-java/)等都是*final*类。我们无法扩展它们。
+2. *final*类的另一个用途是[创建一个](https://www.geeksforgeeks.org/create-immutable-class-java/)类似于[String](https://www.geeksforgeeks.org/string-class-in-java/)类的不可变类。只有将一个类定义成为*final*类，才能使其不可变。
 
 ```java
   final class A
@@ -239,8 +240,6 @@ GeeksForGeeks
       // COMPILE-ERROR! Can't subclass A
   }
 ```
-
-2. *final*类的另一个用途是[创建一个](https://www.geeksforgeeks.org/create-immutable-class-java/)类似于[String](https://www.geeksforgeeks.org/string-class-in-java/)类的不可变类。只有将一个类定义成为*final*类，才能使其不可变。
 
 Java支持把class定义成*final*，似乎违背了面向对象编程的基本原则，但在另一方面，封闭的类也保证了该类的所有方法都是固定不变的，不会有子类的覆盖方法需要去动态加载。这给编译器做优化时提供了更多的可能，最好的例子是String，它就是*final*类，Java编译器就可以把字符串常量（那些包含在双引号中的内容）直接变成String对象，同时对运算符"+"的操作直接优化成新的常量，因为final修饰保证了不会有子类对拼接操作返回不同的值。
 对于所有不同的类定义一顶层类(全局或包可见)、嵌套类(内部类或静态嵌套类)都可以用final来修饰。但是一般来说final多用来修饰在被定义成全局(public)的类上，因为对于非全局类，访问修饰符已经将他们限制了它们的也可见性，想要继承这些类已经很困难，就不用再加一层final限制。
