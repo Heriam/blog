@@ -5,7 +5,7 @@ Tags: Ubuntu, Maven
 <div><font face="Times New Roman">
 <p><em><font face = "Times New Roman">操作系统：Linux x64 / Ubuntu 14.04</font></em>
 <em><font face = "Times New Roman">Apache Maven版本：3.3.9</font></em>  <br />
-<em><font face = "Times New Roman">建议预先搭建Java开发环境：详见<a href="http://www.hao-jiang.com/pages/2016/01/13/ubuntuxi-tong-javakai-fa-huan-jing-de-da-jian.html">《Linux Ubuntu系统下Java开发环境搭建》</a></font></em></p>
+<em><font face = "Times New Roman">建议预先搭建Java开发环境：详见<a href="https://jiang-hao.com/articles/2017/coding-Ubuntu%E7%B3%BB%E7%BB%9FJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA.html">《Linux Ubuntu系统下Java开发环境搭建》</a></font></em></p>
 <hr />
 <p><font face = "Times New Roman">1. 前往Apache Maven官网下载最新版本：https://maven.apache.org/download.cgi，本文以apache-maven-3.3.9-bin.tar.gz为例。</font>    </p>
 <p><font face = "Times New Roman">2. 在合适的路径下创建文件夹用来存储Maven，本例选择在/opt目录下新建MVN子文件夹。打开Terminal（后文成为T1），输入：</font>    </p>

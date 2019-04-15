@@ -10,7 +10,8 @@ template: article
   ​          
   <br>   
 ***
-**一、**[《Pelican＋Github博客搭建详细教程》](http://www.jianshu.com/p/fd8ed9855f44)      
+**一、**[《Pelican＋Github博客搭建详细教程》](<https://jiang-hao.com/articles/2018/blog-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html>)      
+
 ***
 按照标题链接给出的教程先搭建出一个基于Github托管的博客系统。接下来将说明如何将博客同步到Coding。    
 <br>   
@@ -19,7 +20,7 @@ template: article
 **二、在Coding创建一个新的项目**
 ***
 1. 在[Coding首页](http://www.coding.net)进行注册并登陆，创建项目的方法与Github类似，不同之处在于coding新建的公开项目名和用户名相同，而不像Github那样是<用户名>.github.io。创建完成后，生成的新的项目链接应该类似于：`https://coding.net/<usrname>/<username>.git`。    
-  <br>   
+    <br>   
 2. 将本地SSH公钥拷贝到coding。操作同样与Github类似。由于本地已经为Github生成了一个公钥，这里只用cd进入~/.ssh文件夹查看一个名为`id_rsa.pub`文件的内容，类似于如下。我们只拷贝**邮箱之前**的所有内容到coding的公钥管理页面。     
 ```
 ssh-rsa AAAAfafjIJGOF+FDA。。(省略)。。Ksap Heriam@users.noreply.github.com
@@ -57,7 +58,7 @@ git push -u coding master:coding-pages
 ```
 <br>    
 3. 这时登录Coding就可以看到博客内容已经被拷贝到coding-pages分支。
-  <br>   
+    <br>   
 
 ***
 **四、配置域名**
@@ -70,15 +71,16 @@ www     CNAME  国内  coding.me
 ```
 <br>   
 
-2. 在Coding 上“项目管理”中找到“自定义域名／Pages”，添加要绑定的域名，比如我是 hao-jiang.com和www.hao-jiang.com。注意这些域名也就是我们刚刚在dnspod中设置的解析域名。
+2. 在Coding 上“项目管理”中找到“自定义域名／Pages”，添加要绑定的域名，比如我是 [jiang-hao.com](https://jiang-hao.com)和[www.jiang-hao.com](https://jiang-hao.com)。注意这些域名也就是我们刚刚在dnspod中设置的解析域名。
 
 <br>   
 
 ***
 **五、配置Pelican实现同步提交**
 ***
-设置一键上传：（如有疑问参见[《Pelican＋Github博客搭建详细教程》](http://www.jianshu.com/p/fd8ed9855f44)第三部分第4点）打开根目录下的Makefile文件，修改以下三个地方：   
+设置一键上传：（如有疑问参见[《Pelican＋Github博客搭建详细教程》](<https://jiang-hao.com/articles/2018/blog-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html>)第三部分第4点）打开根目录下的Makefile文件，修改以下三个地方：   
 <br>    
+
 - OUTPUTDIR        
 
 ```
