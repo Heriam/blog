@@ -118,7 +118,7 @@ SOCIALITEMS =  (
   ('Instagram','https://www.instagram.com/heriam_j/'),
   ('ResearchGate','https://www.researchgate.net/profile/Hao_Jiang59'),
   ('知乎','https://www.zhihu.com/people/justin-time'),
-  ('OSChina','https://my.oschina.net/u/4108498'),
+  ('OSChina','https://my.oschina.net/heriam'),
   )
 		  
 MENUITEMS = (
