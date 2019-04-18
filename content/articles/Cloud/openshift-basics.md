@@ -48,50 +48,64 @@ Service Account 是 Openshift 中专门供程序和组件使用的账号。不�
 
 ### 核心组件
 
-1. Master节点：主控节点
+####Master节点：主控节点
 
-   **集群内的管理组件都运行在Master节点上。Master节点负责集群的配置管理，维护集群的状态。**Master节点运行的服务组件：
+**集群内的管理组件都运行在Master节点上。Master节点负责集群的配置管理，维护集群的状态。**Master节点运行的服务组件：
 
-   - API Server：负责提供Web console和RESTful API。集群内所有节点都会访问API Server，更新节点的状态及其上的容器状态。
-   - 数据源（Data store）：集群内所有状态信息都会存储在后端的一个etcd的分布式数据库中。
-   - 调度控制器（Scheduler）：负责按用户输入的要求寻找合适的计算节点。
-   - 复制控制器（Replication Controller）：负责监控当前容器实例的数量和用户部署指定的数量是否匹配，若有容器异常退出，复制控制器发现实际数少于部署定义数，从而触发部署新的实例。
+- API Server：负责提供Web console和RESTful API。集群内所有节点都会访问API Server，更新节点的状态及其上的容器状态。
+- 数据源（Data store）：集群内所有状态信息都会存储在后端的一个etcd的分布式数据库中。
+- 调度控制器（Scheduler）：负责按用户输入的要求寻找合适的计算节点。
+- 复制控制器（Replication Controller）：负责监控当前容器实例的数量和用户部署指定的数量是否匹配，若有容器异常退出，复制控制器发现实际数少于部署定义数，从而触发部署新的实例。
 
-2. Node节点：计算节点
+#### Node节点：计算节点
 
-   接收Master节点的指令，运行和维护Docker容器。Master节点也可以是Node节点，只是在一般环境中，其运行容器的功能是关闭的。
+接收Master节点的指令，运行和维护Docker容器。Master节点也可以是Node节点，只是在一般环境中，其运行容器的功能是关闭的。
 
-3. Project：在k8s中使用命名空间来分隔资源。同一个命名空间中，某一个对象的名称在其分类中必须唯一，但在不同命名空间中的对象则可以同名。Openshift集成了k8s命名空间的概念，而且在其上定义了Project对象的概念，**每一个Project会和一个namespace相关联**。
+#### Project
 
-4. Pod：在Openshift中的容器都会Pod包裹，即容器都运行在Pod内部，**一个Pod可以运行一个或多个容器，绝大多少情况下，一个Pod内部运行一个容器**。
+在k8s中使用命名空间来分隔资源。同一个命名空间中，某一个对象的名称在其分类中必须唯一，但在不同命名空间中的对象则可以同名。Openshift集成了k8s命名空间的概念，而且在其上定义了Project对象的概念，**每一个Project会和一个namespace相关联**。
 
-5. Service：由于容器是一个非持久化的对象，所有对容器的修改在容器销毁后都会丢失，而且每个容器的IP地址会不断变化。k8s提供了Service组件，当部署某个应用时，会创建一个Service对象，该对象与一个或多个Pod关联，同时每个Service分配一个相对恒定的IP，通过访问该IP及相应的端口，请求就会转发到对应Pod端口。除了可通过IP，也可以通过域名访问Service，格式为：..svc.cluster.local
+#### Pod
 
-6. Router和Route：<u>Service提供了一个通往后端Pod集群的稳定入口，但是Service的IP地址只是集群内部的节点和容器可见。外部需通过Router（路由器）来转发。Router组件是Openshift集群中一个重要的组件，它是外界访问集群内容器应用的入口。用户可以创建Route（路由规则）对象，一个Route会与一个Service关联，并绑定一个域名。Route规则被Router加载。当集群外部的请求通过指定域名访问应用时，域名被解析并指向Router所在的计算机节点上，Router获取该请求，然后根据Route规则定义转发给与这个域名对应的Service后端所关联的Pod容器实例。上述转发流程类似于nginx。Router负责将集群外的请求转发到集群的容器，Service则负责把来自集群内部的请求转发到指定的容器中。</u>
+在Openshift中的容器都会Pod包裹，即容器都运行在Pod内部，**一个Pod可以运行一个或多个容器，绝大多少情况下，一个Pod内部运行一个容器**。
 
-7. Persistent Storage：容器默认是非持久化的，所有的修改在容器销毁时都会丢失。Docker提供了持久化卷挂载的能力，Openshift除了提供持久化卷挂载的能力，还提供了一种持久化供给模型即PV（Persistent Volume）和PVC（Persistent Volume Claim）。在PV和PVC模型中，集群管理员会创建大量不同大小和不同特性的PV。用户在部署应用时显式的声明对持久化的需求，创建PVC，在PVC中定义所需要的存储大小，访问方式。Openshift集群会自动寻找符合要求的PV与PVC自动对接。
+#### Service
 
-8. Registry：Openshift内部的镜像仓库，主要用于存放内置的S2I构建流程所产生的镜像。
+由于容器是一个非持久化的对象，所有对容器的修改在容器销毁后都会丢失，而且每个容器的IP地址会不断变化。k8s提供了Service组件，当部署某个应用时，会创建一个Service对象，该对象与一个或多个Pod关联，同时每个Service分配一个相对恒定的IP，通过访问该IP及相应的端口，请求就会转发到对应Pod端口。除了可通过IP，也可以通过域名访问Service，格式为：..svc.cluster.local
 
-9. S2I：Source to Image，负责将应用源码构建成镜像。步骤：
+#### Router和Route
 
-   1）用户输入源代码仓库的地址
+<u>Service提供了一个通往后端Pod集群的稳定入口，但是Service的IP地址只是集群内部的节点和容器可见。外部需通过Router（路由器）来转发。Router组件是Openshift集群中一个重要的组件，它是外界访问集群内容器应用的入口。用户可以创建Route（路由规则）对象，一个Route会与一个Service关联，并绑定一个域名。Route规则被Router加载。当集群外部的请求通过指定域名访问应用时，域名被解析并指向Router所在的计算机节点上，Router获取该请求，然后根据Route规则定义转发给与这个域名对应的Service后端所关联的Pod容器实例。上述转发流程类似于nginx。Router负责将集群外的请求转发到集群的容器，Service则负责把来自集群内部的请求转发到指定的容器中。</u>
 
-   2）选择S2I构建的基础镜像
+#### Persistent Storage
 
-   3）触发构建
+容器默认是非持久化的，所有的修改在容器销毁时都会丢失。Docker提供了持久化卷挂载的能力，Openshift除了提供持久化卷挂载的能力，还提供了一种持久化供给模型即PV（Persistent Volume）和PVC（Persistent Volume Claim）。在PV和PVC模型中，集群管理员会创建大量不同大小和不同特性的PV。用户在部署应用时显式的声明对持久化的需求，创建PVC，在PVC中定义所需要的存储大小，访问方式。Openshift集群会自动寻找符合要求的PV与PVC自动对接。
 
-   4）S2I构建执行器从指定的源码仓库地址下载代码
+#### Registry
 
-   5）S2I构建执行器实例化Builder镜像，并将代码注入到Builder镜像
+Openshift内部的镜像仓库，主要用于存放内置的S2I构建流程所产生的镜像。
 
-   6）S2I构建执行器按照预定义的逻辑执行源代码的编译，构建
+#### S2I
 
-   7）生成新的镜像
+Source to Image，负责将应用源码构建成镜像。步骤：
 
-   8）S2I构建执行器将新镜像Push到Registry
+1）用户输入源代码仓库的地址
 
-   9）更新相关的Image Stream信息
+2）选择S2I构建的基础镜像
+
+3）触发构建
+
+4）S2I构建执行器从指定的源码仓库地址下载代码
+
+5）S2I构建执行器实例化Builder镜像，并将代码注入到Builder镜像
+
+6）S2I构建执行器按照预定义的逻辑执行源代码的编译，构建
+
+7）生成新的镜像
+
+8）S2I构建执行器将新镜像Push到Registry
+
+9）更新相关的Image Stream信息
 
 ### 核心流程
 
