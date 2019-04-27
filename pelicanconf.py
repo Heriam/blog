@@ -124,8 +124,7 @@ SOCIALITEMS =  (
 MENUITEMS = (
   ('Archives','/articles'),
   ('Tags','/tags'),
-  ('Publications','/pages/publications'),
-  ('Self-Management','/pages/management')
+  ('Publications','/pages/publications')
 )
 
 #网站管理
