@@ -1,5 +1,6 @@
 title: Flink入门
 date: 2019-06-13
+tags: Flink
 
 [TOC]
 
