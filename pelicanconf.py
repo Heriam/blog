@@ -26,6 +26,7 @@ STATIC_PATHS = ['extra', 'doc']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
         'extra/favicon.ico': {'path': 'favicon.ico'},
+        'extra/happy-birthday-to-ms-yang/': {'path': 'happy-birthday-to-ms-yang/'},
 		'doc/skillTree.json': {'path': 'doc/skillTree.json'},
         }
 SLUGIFY_SOURCE = 'title'
