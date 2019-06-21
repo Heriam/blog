@@ -31,7 +31,7 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
-DIRECT_TEMPLATES = ['tags', 'categories', 'authors']
+DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
 PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None, 'archives': None}
 
 # Markdown扩展
