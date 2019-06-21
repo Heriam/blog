@@ -31,8 +31,6 @@ EXTRA_PATH_METADATA = {
         }
 SLUGIFY_SOURCE = 'title'
 DEFAULT_DATE = 'fs'
-DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
-PAGINATED_TEMPLATES = {'tag': None, 'category': None, 'author': None, 'archives': None}
 
 # Markdown扩展
 MARKDOWN = {
@@ -56,6 +54,8 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 10
 NEWEST_FIRST_ARCHIVES = True
+DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
+PAGINATED_TEMPLATES = {'tag': None, 'category': None, 'author': None, 'archives': None}
 
 # URL设置
 SLUGIFY_SOURCE = 'basename'
