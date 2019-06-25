@@ -54,8 +54,8 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 15
 NEWEST_FIRST_ARCHIVES = True
-DIRECT_TEMPLATES = ['index','tags', 'categories', 'authors', 'archives']
-PAGINATED_TEMPLATES = {'tag': None, 'category': None, 'author': None, 'archives': None}
+DIRECT_TEMPLATES = ['index', 'tags', 'categories', 'authors', 'archives']
+PAGINATED_TEMPLATES = {'index', 'tag': None, 'category': None, 'author': None, 'archives': None}
 
 # URL设置
 SLUGIFY_SOURCE = 'basename'
