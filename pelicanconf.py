@@ -54,7 +54,7 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DEFAULT_ORPHANS = 0
 DEFAULT_PAGINATION = 15
 NEWEST_FIRST_ARCHIVES = True
-DIRECT_TEMPLATES = ['tags', 'categories', 'authors', 'archives']
+DIRECT_TEMPLATES = ['index','tags', 'categories', 'authors', 'archives']
 PAGINATED_TEMPLATES = {'tag': None, 'category': None, 'author': None, 'archives': None}
 
 # URL设置
@@ -126,7 +126,8 @@ SOCIALITEMS =  (
 MENUITEMS = (
   ('Archives','/articles'),
   ('Tags','/tags'),
-  ('Publications','/pages/publications')
+  ('Publications','/pages/publications'),
+  ('About me','/pages/aboutme')
 )
 
 #网站管理
