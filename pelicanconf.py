@@ -127,7 +127,7 @@ MENUITEMS = (
   ('Archives','/articles'),
   ('Tags','/tags'),
   ('Publications','/pages/publications'),
-  ('About me','/pages/aboutme')
+  ('AboutMe','/pages/aboutme')
 )
 
 #网站管理
