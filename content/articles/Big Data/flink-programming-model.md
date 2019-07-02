@@ -32,28 +32,28 @@ Flink提供不同级别的抽象来开发流/批处理应用程序。
 
 Flink程序的基本构建块是**streams**和**transformations**。（请注意，Flink的DataSet API中使用的DataSets其实内部也是streams - 稍后会详细介绍。）从概念上讲，*stream*是（可能永无止境的）数据记录流，而*transformation*是将一个或多个流作为输入，并产生一个或多个输出流作为结果的操作。
 
-执行时，Flink程序映射为**streaming dataflows**，由**流**和转换**运算符**组成。每个*dataflow*都以一个或多个**sources**开头，并以一个或多个**sinks**结束。数据流类似于任意**有向无环图** *（DAG）*。尽管通过*迭代*结构允许特殊形式的循环 ，但为了简单起见，我们将在大多数情况下不将其考虑其中。
+执行时，Flink程序映射为**streaming dataflows**，由**流**和转换**算子**组成。每个*dataflow*都以一个或多个**sources**开头，并以一个或多个**sinks**结束。数据流类似于任意**有向无环图** *（DAG）*。尽管通过*迭代*结构允许特殊形式的循环 ，但为了简单起见，我们将在大多数情况下不将其考虑其中。
 
 ![DataStream程序及其数据流。](https://ci.apache.org/projects/flink/flink-docs-release-1.8/fig/program_dataflow.svg)
 
-通常，程序中的transformations与dataflow中的operators之间存在一对一的对应关系。但是，有时一个转换可能包含多个转换运算符。
+通常，程序中的transformations与dataflow中的operators之间存在一对一的对应关系。但是，有时一个转换可能包含多个转换算子。
 
-Sources和Sinks在[流连接器](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/connectors/index.html)和[批处理连接器](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/connectors.html)文档中有介绍。[DataStream运算符](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/operators/index.html)和[DataSet转换](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/dataset_transformations.html)中记录了[转换](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/dataset_transformations.html)有关介绍。
+Sources和Sinks在[流连接器](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/connectors/index.html)和[批处理连接器](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/connectors.html)文档中有介绍。[DataStream算子](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/operators/index.html)和[DataSet转换](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/dataset_transformations.html)中记录了[转换](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/batch/dataset_transformations.html)有关介绍。
 
 
 
 ## 并行数据流
 
-Flink中的程序本质上是并行和分布式的。在执行期间，*stream*具有一个或多个**stream partitions**，并且每个*运算符*具有一个或多个**运算符子任务**。运算符子任务彼此独立，并且可以在不同的线程中执行，并且可能在不同的机器或容器上执行。
+Flink中的程序本质上是并行和分布式的。在执行期间，*stream*具有一个或多个**stream partitions**，并且每个*算子*具有一个或多个**算子子任务**。算子子任务彼此独立，并且可以在不同的线程中执行，并且可能在不同的机器或容器上执行。
 
-运算符子任务的数量是该特定运算符的**并行**度。流的并行度始终是其生成运算符的并行度。同一程序的不同运算符可能具有不同的并行级别。
+算子子任务的数量是该特定算子的**并行**度。流的并行度始终是其生成算子的并行度。同一程序的不同算子可能具有不同的并行级别。
 
 ![并行数据流](https://ci.apache.org/projects/flink/flink-docs-release-1.8/fig/parallel_dataflow.svg)
 
 流可以*以一对一*（或*转发*）模式或以*重新分发*模式在两个operator之间传输数据：
 
-- **一对一**流（例如，在上图中的*Source*和*map（）*运算符之间）保留元素的分区和排序。这意味着*map（）*运算符的subtask [1] 将以*Source*运算符的subtask [1]生成的相同顺序的相同元素作为输入。
-- **重新分配**流（在上面的*map（）*和*keyBy / window*之间，以及 *keyBy / window*和*Sink之间*）重新分配流。每个*运算符子任务*将数据发送到不同的目标子任务，具体取决于所选的transformation。实例是 *keyBy（）* （其通过散列密钥重新分区），*broadcast（）* ，或*rebalance（）* （随机地重新分区）。在*rebalance*交换中，元素之间的排序仅保留在每对发送和接收子任务中（例如，*map（）的*子任务[1] 和子任务[2]*keyBy / window*）。因此，在此示例中，保留了每个密钥内的排序，但并行性确实引入了关于不同密钥的聚合结果到达接收器的顺序的非确定性。
+- **一对一**流（例如，在上图中的*Source*和*map（）*算子之间）保留元素的分区和排序。这意味着*map（）*算子的subtask [1] 将以*Source*算子的subtask [1]生成的相同顺序的相同元素作为输入。
+- **重新分配**流（在上面的*map（）*和*keyBy / window*之间，以及 *keyBy / window*和*Sink之间*）重新分配流。每个*算子子任务*将数据发送到不同的目标子任务，具体取决于所选的transformation。实例是 *keyBy（）* （其通过散列密钥重新分区），*broadcast（）* ，或*rebalance（）* （随机地重新分区）。在*rebalance*交换中，元素之间的排序仅保留在每对发送和接收子任务中（例如，*map（）的*子任务[1] 和子任务[2]*keyBy / window*）。因此，在此示例中，保留了每个密钥内的排序，但并行性确实引入了关于不同密钥的聚合结果到达接收器的顺序的非确定性。
 
 有关配置和控制并行性的详细信息，请参阅[并行执行](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html)的文档。
 
@@ -76,8 +76,8 @@ Windows可以是*时间驱动的*（例如：每30秒）或*数据驱动*（例�
 当在流程序中引用时间（例如定义窗口）时，可以参考不同的时间概念：
 
 - **事件时间**是创建**事件的时间**。它通常由事件中的时间戳描述，例如由生产传感器或生产服务附加。Flink通过[时间戳分配器](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/event_timestamps_watermarks.html)访问事件时间戳。
-- **摄取时间**是事件在Source操作符处输入Flink数据流的时间。
-- **处理时间**是执行基于时间的操作的每个操作符的本地时间。
+- **摄取时间**是事件在Source算子处输入Flink数据流的时间。
+- **处理时间**是执行基于时间的操作的每个算子的本地时间。
 
 ![事件时间，摄取时间和处理时间](https://ci.apache.org/projects/flink/flink-docs-release-1.8/fig/event_ingestion_processing_time.svg)
 
@@ -87,9 +87,9 @@ Windows可以是*时间驱动的*（例如：每30秒）或*数据驱动*（例�
 
 ## 有状态的操作
 
-虽然数据流中的许多操作只是一次查看一个单独的*事件*（例如事件解析器），但某些操作会记住多个事件（例如窗口操作符）的信息。这些操作称为**有状态**。
+虽然数据流中的许多操作只是一次查看一个单独的*事件*（例如事件解析器），但某些操作会记住多个事件（例如窗口算子）的信息。这些操作称为**有状态**。
 
-状态操作的状态保持在可以被认为是嵌入式键/值存储的状态中。状态被分区并严格地与有状态操作符读取的流一起分发。因此，只有在*keyBy（）*函数之后才能在*键控流*上访问键/值状态，并且限制为与当前事件的键相关联的值。对齐流和状态的密钥可确保所有状态更新都是本地操作，从而保证一致性而无需事务开销。此对齐还允许Flink重新分配状态并透明地调整流分区。
+状态操作的状态保持在可以被认为是嵌入式键/值存储的状态中。状态被分区并严格地与有状态算子读取的流一起分发。因此，只有在*keyBy（）*函数之后才能在*键控流*上访问键/值状态，并且限制为与当前事件的键相关联的值。对齐流和状态的密钥可确保所有状态更新都是本地操作，从而保证一致性而无需事务开销。此对齐还允许Flink重新分配状态并透明地调整流分区。
 
 ![状态和分区](https://ci.apache.org/projects/flink/flink-docs-release-1.8/fig/state_partitioning.svg)
 
@@ -99,7 +99,7 @@ Windows可以是*时间驱动的*（例如：每30秒）或*数据驱动*（例�
 
 ## 容错检查点
 
-Flink使用**流重放**和**检查点**的组合实现容错。检查点与每个输入流中的特定点以及每个操作符的对应状态相关。通过恢复运算符的状态并从检查点重放事件，可以从检查点恢复流数据流，同时保持一致性*（恰好一次处理语义）*。
+Flink使用**流重放**和**检查点**的组合实现容错。检查点与每个输入流中的特定点以及每个算子的对应状态相关。通过恢复算子的状态并从检查点重放事件，可以从检查点恢复流数据流，同时保持一致性*（恰好一次处理语义）*。
 
 检查点间隔是在执行期间用恢复时间（需要重放的事件的数量）来折衷容错开销的手段。
 

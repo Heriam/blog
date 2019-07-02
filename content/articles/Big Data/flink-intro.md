@@ -210,7 +210,7 @@ GROUP BY SESSION(clicktime, INTERVAL '30' MINUTE), userId
 Flink具有几个用于常见数据处理用例的库。这些库通常嵌入在API中，而不是完全独立的。因此，他们可以从API的所有功能中受益，并与其他库集成。
 
 - **[复杂事件处理（CEP）](https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/cep.html)**：模式检测是事件流处理的一个非常常见的用例。Flink的CEP库提供了一个API来指定事件的模式（想想正则表达式或状态机）。CEP库与Flink的DataStream API集成，以便在DataStream上评估模式。CEP库的应用包括网络入侵检测，业务流程监控和欺诈检测。
-- **[DataSet API](https://ci.apache.org/projects/flink/flink-docs-stable/dev/batch/index.html)**：DataSet API是Flink用于批处理应用程序的核心API。DataSet API的原语包括 *map*， *reduce*，*（外部）join*，*co-group*和 *iterate*。所有操作都由算法和数据结构支持，这些算法和数据结构对内存中的序列化数据进行操作，并在数据大小超过内存预算时溢出到磁盘。Flink的DataSet API的数据处理算法是受传统数据库运算符的启发，例如混合散列连接或外部合并排序。
+- **[DataSet API](https://ci.apache.org/projects/flink/flink-docs-stable/dev/batch/index.html)**：DataSet API是Flink用于批处理应用程序的核心API。DataSet API的原语包括 *map*， *reduce*，*（外部）join*，*co-group*和 *iterate*。所有操作都由算法和数据结构支持，这些算法和数据结构对内存中的序列化数据进行操作，并在数据大小超过内存预算时溢出到磁盘。Flink的DataSet API的数据处理算法是受传统数据库算子的启发，例如混合散列连接或外部合并排序。
 - **[Gelly](https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/index.html)**：Gelly是一个可扩展的图形处理和分析库。Gelly在DataSet API之上实现并与之集成。因此，它受益于其可扩展且强大的算子。Gelly具有[内置算法](https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/library_methods.html)，例如标签传播，三角形枚举和页面排名，但也提供了一种[ Graph API](https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/graph_api.html)从而简化自定义图算法的实现。
 
 ### 三、运行
