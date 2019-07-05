@@ -4,7 +4,7 @@ tags: Flink
 
 [TOC]
 
-## 任务和算子链
+## Tasks and Operator Chains
 
 对于分布式执行，Flink将多个算子子任务链串联成任务。每个任务由一个线程执行。将算子链接到任务是一项有用的优化：它可以减少线程到线程切换和缓冲的开销，并在降低延迟的同时提高整体吞吐量。可以配置链接行为; 有关详细信息，请参阅[链接文档](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/operators/#task-chaining-and-resource-groups)。
 
@@ -36,7 +36,7 @@ JobManagers和TaskManagers可以通过多种方式启动：作为[独立集群](
 
 ## Task Slots and Resources
 
-每个worker（TaskManager）都是一个*JVM进程*，可以在不同的线程中执行一个或多个子任务。为了控制一个work接受的任务数量，每个work都有所谓的**task slots**（至少一个）。
+每个worker（TaskManager）都是一个*JVM进程*，可以在不同的线程中执行一个或多个子任务。为了控制一个worker接受的任务数量，每个worker都有所谓的**task slots**（至少一个）。
 
 每个*task slot*代表TaskManager的一个固定资源子集。例如，具有3个task slot的TaskManager会将其1/3的托管内存分配于每个task slot。资源切片意味着子任务不会与来自托管内存的其他作业的子任务竞争资源，相反其具有一定量的预留托管内存。请注意，这里没有CPU隔离; 当前task slots只分隔任务的托管内存。
 
