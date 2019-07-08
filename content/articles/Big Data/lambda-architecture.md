@@ -209,6 +209,12 @@ query = function(batch view, realtime view)
 
 ![](https://img-blog.csdn.net/20160628202924389?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
+另一个实现版本：
+
+![](https://upload-images.jianshu.io/upload_images/1552893-5b0692e1d55a8483.png!web?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp)
+
+根据batch layer的特点，具备存储(HDFS)和计算(MapReduce)的Hadoop显然是第一人选，而batch view 可以是hadoop本身的hdfs 或者基于hdfs的所构建的类似hive那样的仓库，speed layer因为时效性的影响，采用实时流式处理系统，例如strom或者spark streaming, 而speed view 可以存在HBase 或者其他类似的Nosql数据库。server layer 提供用户查询的方法，采用facebook 开源的Impala，统一入口查询。或者自己实现hive和HBase统一查询。这是两年前的文章，当时spark 还没那么火，现在看来spark可以直接作为batch和speed层的替代者了。
+
 #### 选型原则  
 
 Lambda架构是个通用框架，各个层选型时不要局限时上面给出的组件，特别是对于View的选型。从我对Lambda架构的实践来看，因为View是个和业务关联性非常大的概念，View选择组件时关键是要根据业务的需求，来选择最适合查询的组件。不同的View组件的选择要深入挖掘数据和计算自身的特点，从而选择出最适合数据和计算自身特点的组件，同时不同的View可以选择不同的组件。 
