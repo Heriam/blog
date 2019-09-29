@@ -8,7 +8,7 @@ Tags: VPS, Vultr
 
 [Vultr新用户赠送$50活动入口](https://www.vultr.com/promo/try50/?service=try50)
 
-![vultr-promotion](%E5%A4%A7%E9%99%86%E8%AE%BF%E9%97%AEVultr%E5%90%84%E8%8A%82%E7%82%B9VPS%E7%BD%91%E9%80%9F%E6%B5%8B%E8%AF%95%E7%BB%BC%E5%90%88%E6%8A%A5%E5%91%8A.assets/1569728309047.png)
+![vultr-promotion](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-promotion.png)
 
 ## [节点列表](https://www.vultr.com/resources/faq/#downloadspeedtests)
 
