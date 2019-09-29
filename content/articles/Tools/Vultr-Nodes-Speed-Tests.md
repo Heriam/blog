@@ -10,6 +10,16 @@ Tags: VPS, Vultr
 
 ![vultr-promotion](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-promotion.png)
 
+## 测试方法
+
+采用以下方法：
+
+- 本地Ping测试
+- 腾讯云主机Ping测试
+- 本地下载测试
+- 腾讯云主机下载测试
+- 站长工具综合测试
+
 ## [节点列表](https://www.vultr.com/resources/faq/#downloadspeedtests)
 
 | Location                   | Looking Glass                                                | Download Test File:    IPv4                                  |
