@@ -10,7 +10,7 @@ template: article
   ​          
   <br>   
 ***
-**一、**[《Pelican＋Github博客搭建详细教程》](<https://jiang-hao.com/articles/2018/blog-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html>)      
+**一、**[《Pelican＋Github博客搭建详细教程》](https://jiang-hao.com/articles/2018/frontend-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html)      
 
 ***
 按照标题链接给出的教程先搭建出一个基于Github托管的博客系统。接下来将说明如何将博客同步到Coding。    
@@ -78,7 +78,7 @@ www     CNAME  国内  coding.me
 ***
 **五、配置Pelican实现同步提交**
 ***
-设置一键上传：（如有疑问参见[《Pelican＋Github博客搭建详细教程》](<https://jiang-hao.com/articles/2018/blog-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html>)第三部分第4点）打开根目录下的Makefile文件，修改以下三个地方：   
+设置一键上传：（如有疑问参见[《Pelican＋Github博客搭建详细教程》](https://jiang-hao.com/articles/2018/frontend-%E4%BD%BF%E7%94%A8Pelican%E5%9F%BA%E4%BA%8EGithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html)第三部分第4点）打开根目录下的Makefile文件，修改以下三个地方：   
 <br>    
 
 - OUTPUTDIR        

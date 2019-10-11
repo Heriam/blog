@@ -17,7 +17,8 @@ template: article
 10.Disqus——用来提供博客评论功能    
 11.Sitemap——站点地图，供谷歌，百度等搜索引擎收录  
 12.七牛云存储——静态资源管理，上传自动生成网盘直链      
-**最终效果展示：**[欢迎访问我的博客](http://www.hao-jiang.com)：http://www.hao-jiang.com
+**最终效果展示：**[欢迎访问我的博客](https://jiang-hao.com)：https://jiang-hao.com
+
 ***
 **一、使用Github Pages创建个人博客页面**  
 ***
