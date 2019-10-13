@@ -10,6 +10,8 @@ Tags: VPS, Vultr
 
 ![vultr-promotion](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-promotion.png)
 
+
+
 ## 测试方法
 
 采用以下方法：
@@ -19,6 +21,8 @@ Tags: VPS, Vultr
 - 本地下载测试
 - 腾讯云主机下载测试
 - 站长工具综合测试
+
+
 
 ## [节点列表](https://www.vultr.com/resources/faq/#downloadspeedtests)
 
@@ -40,4 +44,61 @@ Tags: VPS, Vultr
 | Silicon Valley, California | [sjo-ca-us-ping.vultr.com](http://sjo-ca-us-ping.vultr.com/) | [100MB](https://sjo-ca-us-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://sjo-ca-us-ping.vultr.com/vultr.com.1000MB.bin) |
 | Los Angeles, California    | [lax-ca-us-ping.vultr.com](http://lax-ca-us-ping.vultr.com/) | [100MB](https://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://lax-ca-us-ping.vultr.com/vultr.com.1000MB.bin) |
 | Sydney, Australia          | [syd-au-ping.vultr.com](http://syd-au-ping.vultr.com/)       | [100MB](https://syd-au-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://syd-au-ping.vultr.com/vultr.com.1000MB.bin) |
+
+
+
+## 测试结果
+
+### 电信
+
+![image-20191013200356918](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-telecompng.png)
+
+优选节点：
+
+- Toronto
+- New York
+- Chicago
+- Los Angeles
+- Atlanta
+- Dallas
+- Sillicon Valley
+
+### 联通
+
+![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-chinaunion.png)
+
+优选节点：
+
+- New York
+- Chicago
+- Atlanta
+- Los Angeles
+- Toronto
+- Dallas
+
+### 移动
+
+![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-chinamobile.png)
+
+优选节点：
+
+- New York
+- Atlanta
+- Seattle
+- Amsterdam
+- Paris
+- Sillicon Valley
+
+### 多线
+
+![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-multilines.png)
+
+优选节点：
+
+- New York
+- Chicago
+- Toronto
+- Los Angeles
+- Atlanta
+- Dallas
 
