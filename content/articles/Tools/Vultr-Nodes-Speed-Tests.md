@@ -4,13 +4,15 @@ Tags: VPS, Vultr
 
 [TOC]
 
+<br>
+
 ## 限时福利
 
 [Vultr新用户赠送$50活动入口](https://www.vultr.com/promo/try50/?service=try50)
 
 ![vultr-promotion](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-promotion.png)
 
-
+<br>
 
 ## 测试方法
 
@@ -22,7 +24,7 @@ Tags: VPS, Vultr
 - 腾讯云主机下载测试
 - 站长工具综合测试
 
-
+<br>
 
 ## [节点列表](https://www.vultr.com/resources/faq/#downloadspeedtests)
 
@@ -45,7 +47,7 @@ Tags: VPS, Vultr
 | Los Angeles, California    | [lax-ca-us-ping.vultr.com](http://lax-ca-us-ping.vultr.com/) | [100MB](https://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://lax-ca-us-ping.vultr.com/vultr.com.1000MB.bin) |
 | Sydney, Australia          | [syd-au-ping.vultr.com](http://syd-au-ping.vultr.com/)       | [100MB](https://syd-au-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://syd-au-ping.vultr.com/vultr.com.1000MB.bin) |
 
-
+<br>
 
 ## 测试结果
 
