@@ -12,7 +12,7 @@ Wikipedia提供了一个IRC频道，其中记录了对Wiki的所有编辑。我�
 
 我们将使用Flink Maven Archetype来创建我们的项目结构。有关此内容的更多详细信息，请参阅[Java API快速入门](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/projectsetup/java_api_quickstart.html)。出于我们的目的，运行命令是这样的：
 
-```
+```shell
 $ mvn archetype:generate \
     -DarchetypeGroupId=org.apache.flink \
     -DarchetypeArtifactId=flink-quickstart-java \
@@ -26,7 +26,7 @@ $ mvn archetype:generate \
 
 您可以编辑`groupId`，`artifactId`而`package`如果你喜欢。使用上面的参数，Maven将创建一个如下所示的项目结构：
 
-```
+```shell
 $ tree wiki-edits
 wiki-edits/
 ├── pom.xml
@@ -42,13 +42,13 @@ wiki-edits/
 
 我们的`pom.xml`文件已经在根目录中添加了Flink依赖项，并且有几个示例Flink程序`src/main/java`。我们可以删除示例程序，因为我们将从头开始：
 
-```
+```shell
 $ rm wiki-edits/src/main/java/wikiedits/*.java
 ```
 
 作为最后一步，我们需要将Flink Wikipedia连接器添加为依赖关系，以便我们可以在我们的程序中使用它。编辑`dependencies`部分`pom.xml`，使其看起来像这样：
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.apache.flink</groupId>
@@ -77,7 +77,7 @@ $ rm wiki-edits/src/main/java/wikiedits/*.java
 
 ## 写一个Flink程序
 
-接下来是编码。启动您喜欢的IDE并导入Maven项目或打开文本编辑器并创建文件`src/main/java/wikiedits/WikipediaAnalysis.java`：
+接下来是编码。启动你喜欢的IDE并导入Maven项目或打开文本编辑器并创建文件`src/main/java/wikiedits/WikipediaAnalysis.java`：
 
 ```java
 package wikiedits;
@@ -90,23 +90,23 @@ public class WikipediaAnalysis {
 }
 ```
 
-该计划现在非常基础，但我们会慢慢填充。请注意，我不会在此处提供import语句，因为IDE可以自动添加它们。在本节结束时，如果您只想跳过并在编辑器中输入，我将使用import语句显示完整的代码。
+该程序现在还非常基础，但我们会慢慢填充。请注意，我不会在此处提供import语句，因为IDE可以自动添加它们。在本文结尾将给出包括import语句的完整的代码。
 
-Flink程序的第一步是创建一个`StreamExecutionEnvironment` （或者`ExecutionEnvironment`，如果您正在编写批处理作业）。这可用于设置执行参数并创建从外部系统读取的源。所以让我们继续把它添加到main方法：
+Flink程序的第一步是创建一个`StreamExecutionEnvironment` （或者`ExecutionEnvironment`，如果您正在编写批处理作业）。这可用于设置执行参数并创建从外部系统读取的源。所以让我们继续把它添加到main方法中：
 
-```
+```java
 StreamExecutionEnvironment see = StreamExecutionEnvironment.getExecutionEnvironment();
 ```
 
 接下来，我们将创建一个从Wikipedia IRC日志中读取的源：
 
-```
+```java
 DataStream<WikipediaEditEvent> edits = see.addSource(new WikipediaEditsSource());
 ```
 
-这创建了一个我们可以进一步处理`DataStream`的`WikipediaEditEvent`元素。出于本示例的目的，我们感兴趣的是确定每个用户在特定时间窗口中添加或删除的字节数，比如说五秒。为此，我们首先要指定我们要在用户名上键入流，也就是说此流上的操作应考虑用户名。在我们的例子中，窗口中编辑的字节的总和应该是每个唯一的用户。对于键入流，我们必须提供一个`KeySelector`，如下所示：
+这创建了我们可以进一步处理的一个包含`WikipediaEditEvent`元素的`DataStream`。出于本示例的目的，我们感兴趣的是确定每个用户在特定时间窗口中添加或删除的字节数，比如说五秒。为此，我们首先要对流以用户名进行键值化，也就是说此流上的操作应考虑用户名。在我们的例子中，窗口中编辑的字节的总和应该是基于每个唯一的用户分别进行统计。对流进行键值化，我们必须提供一个`KeySelector`，如下所示：
 
-```
+```java
 KeyedStream<WikipediaEditEvent, String> keyedEdits = edits
     .keyBy(new KeySelector<WikipediaEditEvent, String>() {
         @Override
@@ -116,39 +116,54 @@ KeyedStream<WikipediaEditEvent, String> keyedEdits = edits
     });
 ```
 
-这为我们提供了一个`WikipediaEditEvent`具有`String`密钥的用户名。我们现在可以指定我们希望在此流上加上窗口，并根据这些窗口中的元素计算结果。窗口指定要在其上执行计算的Stream的切片。在无限的元素流上计算聚合时需要Windows。在我们的例子中，我们将说我们想要每五秒聚合一次编辑的字节总和：
+这为我们提供了一个具有`String`类型用户名键的`WikipediaEditEvent` 数据流。我们现在可以指定我们希望在此流上加上窗口，并根据这些窗口中的元素计算结果。窗口定义了要在其上执行计算的数据流的一个切片。在无限的元素流上计算聚合时需要Windows。在我们的例子中，我们将说我们想要每五秒聚合一次编辑的字节总和：
 
-```
+```java
 DataStream<Tuple2<String, Long>> result = keyedEdits
     .timeWindow(Time.seconds(5))
-    .fold(new Tuple2<>("", 0L), new FoldFunction<WikipediaEditEvent, Tuple2<String, Long>>() {
+    .aggregate(new AggregateFunction<WikipediaEditEvent, Tuple2<String, Long>, Tuple2<String, Long>>() {
         @Override
-        public Tuple2<String, Long> fold(Tuple2<String, Long> acc, WikipediaEditEvent event) {
-            acc.f0 = event.getUser();
-            acc.f1 += event.getByteDiff();
-            return acc;
+        public Tuple2<String, Long> createAccumulator() {
+            return new Tuple2<>("", 0L);
+        }
+
+        @Override
+        public Tuple2<String, Long> add(WikipediaEditEvent value, Tuple2<String, Long> accumulator) {
+            accumulator.f0 = value.getUser();
+            accumulator.f1 += value.getByteDiff();
+            return accumulator;
+        }
+
+        @Override
+        public Tuple2<String, Long> getResult(Tuple2<String, Long> accumulator) {
+            return accumulator;
+        }
+
+        @Override
+        public Tuple2<String, Long> merge(Tuple2<String, Long> a, Tuple2<String, Long> b) {
+            return new Tuple2<>(a.f0, a.f1 + b.f1);
         }
     });
 ```
 
-第一个调用，`.timeWindow()`指定我们希望有五秒钟的翻滚（非重叠）窗口。第二个调用为每个唯一键指定每个窗口切片的*折叠变换*。在我们的例子中，我们从一个初始值开始，`("", 0L)`并在该时间窗口中为用户添加每个编辑的字节差异。生成的Stream现在包含`Tuple2<String, Long>`每五秒钟发出一次的用户。
+第一个调用`.timeWindow()`表示我们希望有五秒钟的翻滚（不重叠）窗口。第二个调用为每个Key在每个窗口切片上指定*聚合转换*。在我们的例子中，我们从一个初始值`("", 0L)`开始，并在该时间窗口中为用户添加每次编辑的字节差。现在，输出流中将包含每个用户对应一个每五秒钟发出一次的`Tuple2<String, Long>`。
 
 剩下要做的就是将流打印到控制台并开始执行：
 
-```
+```java
 result.print();
 
 see.execute();
 ```
 
-最后一次调用是启动实际Flink工作所必需的。所有操作（例如创建源，转换和接收器）仅构建内部操作的图形。只有在`execute()`被调用时 才会在集群上抛出或在本地计算机上执行此操作图。
+最后一个调用是启动实际Flink工作所必需的。所有操作（例如创建源Source，转换Transformation和接收器Sink）仅构建内部操作的图形。只有在`execute()`被调用时才会提交到集群上或在本地计算机上执行此操作图。
 
 到目前为止完整的代码是这样的：
 
-```
+```java
 package wikiedits;
 
-import org.apache.flink.api.common.functions.FoldFunction;
+import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -176,13 +191,28 @@ public class WikipediaAnalysis {
 
     DataStream<Tuple2<String, Long>> result = keyedEdits
       .timeWindow(Time.seconds(5))
-      .fold(new Tuple2<>("", 0L), new FoldFunction<WikipediaEditEvent, Tuple2<String, Long>>() {
+      .aggregate(new AggregateFunction<WikipediaEditEvent, Tuple2<String, Long>, Tuple2<String, Long>>() {
         @Override
-        public Tuple2<String, Long> fold(Tuple2<String, Long> acc, WikipediaEditEvent event) {
-          acc.f0 = event.getUser();
-          acc.f1 += event.getByteDiff();
-          return acc;
-        }
+      	public Tuple2<String, Long> createAccumulator() {
+      	  return new Tuple2<>("", 0L);
+      	}
+
+      	@Override
+      	public Tuple2<String, Long> add(WikipediaEditEvent value, Tuple2<String, Long> accumulator) {
+      	  accumulator.f0 = value.getUser();
+      	  accumulator.f1 += value.getByteDiff();
+          return accumulator;
+      	}
+
+      	@Override
+      	public Tuple2<String, Long> getResult(Tuple2<String, Long> accumulator) {
+      	  return accumulator;
+      	}
+
+      	@Override
+      	public Tuple2<String, Long> merge(Tuple2<String, Long> a, Tuple2<String, Long> b) {
+      	  return new Tuple2<>(a.f0, a.f1 + b.f1);
+      	}
       });
 
     result.print();
@@ -194,14 +224,14 @@ public class WikipediaAnalysis {
 
 您可以使用Maven在IDE或命令行上运行此示例：
 
-```
+```shell
 $ mvn clean package
 $ mvn exec:java -Dexec.mainClass=wikiedits.WikipediaAnalysis
 ```
 
 第一个命令构建我们的项目，第二个命令执行我们的主类。输出应该类似于：
 
-```
+```shell
 1> (Fenix down,114)
 6> (AnomieBOT,155)
 8> (BD2412bot,-3690)
@@ -214,13 +244,13 @@ $ mvn exec:java -Dexec.mainClass=wikiedits.WikipediaAnalysis
 4> (KasparBot,-245)
 ```
 
-每行前面的数字告诉您输出的打印接收器的哪个并行实例。
+每行前面的数字告诉你输出是由哪个打印Sink的并行实例产生的。
 
-这应该让您开始编写自己的Flink程序。要了解更多信息，您可以查看我们的[基本概念](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/api_concepts.html)指南和 [DataStream API](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/datastream_api.html)。如果您想了解如何在自己的机器上设置Flink群集并将结果写入[Kafka](http://kafka.apache.org/)，请坚持参加奖励练习。
+要了解更多信息，您可以查看我们的[基本概念](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/api_concepts.html)指南和 [DataStream API](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/datastream_api.html)。如果您想了解如何在自己的机器上设置Flink群集并将结果写入[Kafka](http://kafka.apache.org/)，请坚持参加奖励练习。
 
-## 奖金练习：在群集上运行并写入Kafka
+## 额外练习：在群集上运行并写入Kafka
 
-请按照我们的[本地安装教程](https://ci.apache.org/projects/flink/flink-docs-release-1.8/tutorials/local_setup.html)在您的计算机上设置Flink分发，并 在继续之前参考[Kafka快速入门](https://kafka.apache.org/0110/documentation.html#quickstart)以设置Kafka安装。
+请按照我们的[本地安装教程](https://ci.apache.org/projects/flink/flink-docs-release-1.8/tutorials/local_setup.html)在您的计算机上设置Flink分发，并在继续之前参考[Kafka快速入门](https://kafka.apache.org/0110/documentation.html#quickstart)以设置Kafka安装。
 
 作为第一步，我们必须添加Flink Kafka连接器作为依赖关系，以便我们可以使用Kafka接收器。将其添加到`pom.xml`依赖项部分中的文件：
 
