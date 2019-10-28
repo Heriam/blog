@@ -252,7 +252,7 @@ $ mvn exec:java -Dexec.mainClass=wikiedits.WikipediaAnalysis
 
 请按照我们的[本地安装教程](https://ci.apache.org/projects/flink/flink-docs-release-1.8/tutorials/local_setup.html)在您的计算机上设置Flink分发，并在继续之前参考[Kafka快速入门](https://kafka.apache.org/0110/documentation.html#quickstart)以设置Kafka安装。
 
-作为第一步，我们必须添加Flink Kafka连接器作为依赖关系，以便我们可以使用Kafka接收器。将其添加到`pom.xml`依赖项部分中的文件：
+作为第一步，我们必须添加Flink Kafka连接器作为依赖，以便我们可以使用Kafka接收器。将其添加到`pom.xml`*dependency*部分中的文件：
 
 ```
 <dependency>
@@ -262,7 +262,7 @@ $ mvn exec:java -Dexec.mainClass=wikiedits.WikipediaAnalysis
 </dependency>
 ```
 
-接下来，我们需要修改我们的程序。我们将移除`print()`水槽，而是使用Kafka水槽。新代码如下所示：
+接下来，我们需要修改我们的程序。我们将移除`print()`Sink，而是使用Kafka Sink。新代码如下所示：
 
 ```
 result
@@ -283,7 +283,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.functions.MapFunction;
 ```
 
-注意我们是如何第一个转换的流`Tuple2<String, Long>`来流`String`使用MapFunction。我们这样做是因为将简单字符串写入Kafka更容易。然后，我们创建了一个卡夫卡水槽。您可能必须使主机名和端口适应您的设置。`"wiki-result"` 是在我们运行程序之前我们将要创建的Kafka流的名称。使用Maven构建项目，因为我们需要jar文件在集群上运行：
+注意我们是如何在一开始的时候使用MapFunction转换`Tuple2<String, Long>`流为`String`流。我们这样做是因为将简单字符串写入Kafka更容易。然后，我们创建了一个Kafka Sink。您须先修改使主机名和端口对应您的设置。`"wiki-result"` 是在我们运行程序之前我们将要创建的Kafka流的名称。使用Maven构建项目，因为我们需要jar文件在集群上运行：
 
 ```
 $ mvn clean package
@@ -318,24 +318,24 @@ $ bin/flink run -c wikiedits.WikipediaAnalysis path/to/wikiedits-0.1.jar
 03/08/2016 15:09:27 Job execution switched to status RUNNING.
 03/08/2016 15:09:27 Source: Custom Source(1/1) switched to SCHEDULED
 03/08/2016 15:09:27 Source: Custom Source(1/1) switched to DEPLOYING
-03/08/2016 15:09:27 TriggerWindow(TumblingProcessingTimeWindows(5000), FoldingStateDescriptor{name=window-contents, defaultValue=(,0), serializer=null}, ProcessingTimeTrigger(), WindowedStream.fold(WindowedStream.java:207)) -> Map -> Sink: Unnamed(1/1) switched to SCHEDULED
-03/08/2016 15:09:27 TriggerWindow(TumblingProcessingTimeWindows(5000), FoldingStateDescriptor{name=window-contents, defaultValue=(,0), serializer=null}, ProcessingTimeTrigger(), WindowedStream.fold(WindowedStream.java:207)) -> Map -> Sink: Unnamed(1/1) switched to DEPLOYING
-03/08/2016 15:09:27 TriggerWindow(TumblingProcessingTimeWindows(5000), FoldingStateDescriptor{name=window-contents, defaultValue=(,0), serializer=null}, ProcessingTimeTrigger(), WindowedStream.fold(WindowedStream.java:207)) -> Map -> Sink: Unnamed(1/1) switched to RUNNING
+03/08/2016 15:09:27 Window(TumblingProcessingTimeWindows(5000), ProcessingTimeTrigger, AggregateFunction$3, PassThroughWindowFunction) -> Sink: Print to Std. Out (1/1) switched from CREATED to SCHEDULED
+03/08/2016 15:09:27 Window(TumblingProcessingTimeWindows(5000), ProcessingTimeTrigger, AggregateFunction$3, PassThroughWindowFunction) -> Sink: Print to Std. Out (1/1) switched from SCHEDULED to DEPLOYING
+03/08/2016 15:09:27 Window(TumblingProcessingTimeWindows(5000), ProcessingTimeTrigger, AggregateFunction$3, PassThroughWindowFunction) -> Sink: Print to Std. Out (1/1) switched from DEPLOYING to RUNNING
 03/08/2016 15:09:27 Source: Custom Source(1/1) switched to RUNNING
 ```
 
-您可以看到各个运营商如何开始运行。只有两个，因为窗口之后的操作由于性能原因而折叠成一个操作。在Flink，我们称之为*链接*。
+您可以看到各个算子如何开始运行。我们这里只有两个，因为*window*之后的算子由于性能原因而折叠成一个操作。在Flink，我们称之为*算子链*。
 
-您可以通过使用Kafka控制台使用者检查Kafka主题来观察程序的输出：
+您可以通过使用 Kafka console consumer 检查Kafka Topic来观察程序的输出：
 
 ```
 bin/kafka-console-consumer.sh  --zookeeper localhost:2181 --topic wiki-result
 ```
 
-您还可以查看应在[http：// localhost：8081上](http://localhost:8081/)运行的Flink仪表板。您将获得群集资源和正在运行的作业的概述：
+您还可以查看在[http：// localhost：8081上](http://localhost:8081/)运行的Flink仪表板。您将看到群集资源和正在运行的作业的概述：
 
-[![JobManager概述](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-overview.png)](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-overview.png)
+[![JobManager概述](https://ci.apache.org/projects/flink/flink-docs-release-1.9/page/img/quickstart-example/jobmanager-overview.png)](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-overview.png)
 
 如果单击正在运行的作业，您将获得一个视图，您可以在其中检查单个操作，例如，查看已处理元素的数量：
 
-[![作业视图示例](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-job.png)](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-job.png)
+[![作业视图示例](https://ci.apache.org/projects/flink/flink-docs-release-1.9/page/img/quickstart-example/jobmanager-job.png)](https://ci.apache.org/projects/flink/flink-docs-release-1.8/page/img/quickstart-example/jobmanager-job.png)
