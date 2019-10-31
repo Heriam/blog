@@ -8,7 +8,7 @@ tags: Java
 
 *final*关键字可用于多个场景，且在不同场景具有不同的作用。首先，*final*是一个[非访问修饰符](https://www.geeksforgeeks.org/access-and-non-access-modifiers-in-java/)，**仅**适用**于变量，方法或类**。下面是使用final的不同场景：
 
-![java中的final关键字](<https://raw.githubusercontent.com/Heriam/images/master/in-article/final-keyword.png>)
+![java中的final关键字](<https://i.loli.net/2019/10/31/Df4CVqbjoTEKFhe.png>)
 
 上面这张图可以概括成：
 
