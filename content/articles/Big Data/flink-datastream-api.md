@@ -252,7 +252,7 @@ $ mvn exec:java -Dexec.mainClass=wikiedits.WikipediaAnalysis
 
 请按照我们的[本地安装教程](https://ci.apache.org/projects/flink/flink-docs-release-1.8/tutorials/local_setup.html)在您的计算机上设置Flink分发，并在继续之前参考[Kafka快速入门](https://kafka.apache.org/0110/documentation.html#quickstart)以设置Kafka安装。
 
-作为第一步，我们必须添加Flink Kafka连接器作为依赖，以便我们可以使用Kafka接收器。将其添加到`pom.xml`*dependency*部分中的文件：
+作为第一步，我们必须添加Flink Kafka连接器作为依赖，以便我们可以使用Kafka Sink。将其添加到`pom.xml`*dependency*部分：
 
 ```
 <dependency>
