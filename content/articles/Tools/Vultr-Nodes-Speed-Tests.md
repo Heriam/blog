@@ -10,7 +10,7 @@ Tags: VPS, Vultr
 
 [Vultr新用户赠送$50活动入口](https://www.vultr.com/promo/try50/?service=try50)
 
-![vultr-promotion](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-promotion.png)
+![vultr-promotion](https://s2.ax1x.com/2019/11/01/KHBPSK.png)
 
 <br>
 
@@ -53,7 +53,7 @@ Tags: VPS, Vultr
 
 ### 电信
 
-![image-20191013200356918](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-telecompng.png)
+![image-20191013200356918](https://s2.ax1x.com/2019/11/01/KHBSF1.png)
 
 优选节点：
 
@@ -67,7 +67,7 @@ Tags: VPS, Vultr
 
 ### 联通
 
-![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-chinaunion.png)
+![](https://s2.ax1x.com/2019/11/01/KHBpJx.png)
 
 优选节点：
 
@@ -80,7 +80,7 @@ Tags: VPS, Vultr
 
 ### 移动
 
-![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-chinamobile.png)
+![](https://s2.ax1x.com/2019/11/01/KHB9W6.png)
 
 优选节点：
 
@@ -93,7 +93,7 @@ Tags: VPS, Vultr
 
 ### 多线
 
-![](https://raw.githubusercontent.com/Heriam/images/master/in-article/vultr-speedtest-multilines.png)
+![](https://s2.ax1x.com/2019/11/01/KH0xoR.png)
 
 优选节点：
 
