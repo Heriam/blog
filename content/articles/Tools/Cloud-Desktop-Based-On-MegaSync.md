@@ -1,23 +1,37 @@
-title: Put your desktop in the cloud using MEGASync
+title: 一种通过网盘实现多终端桌面同步和云化存储的方法
 date: 2019-04-10
 
-###Demo
-Here is a demo showing a "cloud" desktop:
-<br />   
-![MEGASync Desktop](https://raw.githubusercontent.com/Heriam/images/master/in-article/desktop.png)
-<br />   
-If you don't like application icons and want to only have files and folders on desktop (as shown in the picture), but still want to be able to launch applications in a convenient way, you can remove all the icons, and install [WOX](http://www.wox.one/) for quickly accessing applications.
 
-Using MEGASync, you can synchronize your desktop among multiple devcies and access your documents anywhere with Internet connection.
 
-###MEGASync
-[MEGASync](https://mega.nz/) provides following functionalities:   
-- secure cloud netdisk with 50GB free storage   
-- fast transfers with end-to-end encryption   
-- folder synchronization among multiple devices
+### 简介
 
-As we can see, a very useful function of MEGASync is to synchronize folders among multiple devices. But it would become more interesting when we use it to put our desktop in the cloud.
+方法其实很简单，而且很多人可能已经想到或者在用了。一言以蔽之，就是把桌面文件夹设置为网盘的同步文件夹。之所以要这么做，因为很多人习惯使用一些程序搜索工具来启动程序（比如wox, everything, 甚至系统自带的搜索功能等等），不在系统桌面保留桌面图标，而且通常为了平时工作方便，会直接把桌面当做文档库或者workshop来用，也就是把平时常用的一些文档直接保存在桌面。这个时候如果直接用网盘把桌面设置为同步文件夹，就可以直接实时备份桌面上的文件了。而许多人可能平时会用到诸多不同设备（比如工作场所的电脑，私人电脑，手机，ipad等等），这种方法就可以实现多个电脑之间桌面的实时文件共享，同时其他移动端设备也能实时进行同步了。平时工作或者收藏的文件或者个人材料，在外临时要用的时候随时随处都可以拿到，而不用刻意事先进行上传或者分享。
 
-### HOWTO
 
-The configuration is very easy, just include the desktop directory for synchronization when setting up MEGASync.
+
+### 效果
+
+以下是大致效果:
+
+![MEGASync Desktop](https://i.loli.net/2019/11/01/3ZKJIE4gzNMUpqb.png)
+
+
+### 工具
+
+##### 程序启动
+
+如果您不喜欢应用程序图标，并且只希望在桌面上放置文件和文件夹（如图所示），但仍然希望能够以一种方便的方式启动应用程序，则可以删除所有图标，然后安装[ WOX](http://www.wox.one/)，用于快速访问应用程序。
+
+##### 网盘同步
+
+这里的网盘可以使用MEGASync或者坚果云，可以在多个设备之间同步桌面，并可以通过网页或者客户端随时随地访问文档。[MEGASync](https://mega.nz/)提供以下功能：
+
+- 具有50GB免费存储空间的安全云网络磁盘
+- 通过端到端加密进行快速传输
+- 多个设备之间的文件夹同步
+
+如我们所见，MEGASync的一个非常有用的功能是在多个设备之间同步文件夹。 但是，当我们使用它将桌面放在云中时，它将变得更加有趣。
+
+### 配置
+
+配置非常简单，安装软件后设置MEGASync同步文件夹时只需将桌面目录设置为同步文件夹即可。
