@@ -12,15 +12,15 @@ date: 2019-07-05
 
 数据量从M的级别到G的级别到现在T的级、P的级别。数据量的变化数据管理系统（DBMS）和数仓系统（DW）也在悄然的变化着。 传统应用的数据系统架构设计时，应用直接访问数据库系统。当用户访问量增加时，数据库无法支撑日益增长的用户请求的负载时，从而导致数据库服务器无法及时响应用户请求，出现超时的错误。出现这种情况以后，在系统架构上就采用下图的架构，在数据库和应用中间过一层缓冲隔离，缓解数据库的读写压力。
 
-![](https://img-blog.csdn.net/20160628202055909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://i.loli.net/2019/11/01/UlbBAWMcGzLiCp6.png)
 
 然而，当用户访问量持续增加时，就需要考虑读写分离技术（Master－Slave）架构则如下图，分库分表技术。现在，架构变得越来越复杂了，增加队列、分区、复制等处理逻辑。应用程序需要了解数据库的schema，才能访问到正确的数据。
 
-![](https://img-blog.csdn.net/20160628202131003?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://i.loli.net/2019/11/01/lvg2m1LXJNna6Mj.png)
 
 商业现实已经发生了变化，所以现在更快做出的决定更有价值。除此之外，技术也在不断发展。Kafka，Storm，Trident，Samza，Spark，Flink，Parquet，Avro，Cloud providers等都是工程师和企业广泛采用的流行语。因此，现代基于Hadoop的M/R管道（使用Kafka，Avro和数据仓库等现代二进制格式，即Amazon Redshift，用于临时查询）可能采用以下方式：
 
-![](https://user-gold-cdn.xitu.io/2018/5/29/163ab44095d6f9f9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![TIM截图20191101173806.png](https://i.loli.net/2019/11/01/ytvXPmGJfK8Wg13.png)
 
 这看起来相当不错，但它仍然是一种传统的批处理方式，具有所有已知的缺点，主要原因是客户端的数据在批处理花费大量时间完成之前的数据处理时，新的数据已经进入而导致数据过时。
 
@@ -30,7 +30,7 @@ date: 2019-07-05
 
 Lambda架构是由Storm的作者Nathan Marz提出的一个实时大数据处理框架。Marz在Twitter工作期间开发了著名的实时大数据处理框架Storm，Lambda架构是其根据多年进行分布式大数据系统的经验总结提炼而成。Lambda架构的目标是设计出一个能满足实时大数据系统关键特性的架构，包括有：高容错、低延时和可扩展等。Lambda架构整合离线计算和实时计算，融合不可变性（Immunability），读写分离和复杂性隔离等一系列架构原则，可集成Hadoop，Kafka，Storm，Spark，Hbase等各类大数据组件。
 
-![](https://user-gold-cdn.xitu.io/2018/5/29/163ab44095e27f87?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![TIM截图20191101174020.png](https://i.loli.net/2019/11/01/QDlhSAaBxK4LEvk.png)
 
 ### Lambda架构关键特性
 
@@ -93,7 +93,7 @@ Query = Function(All Data)
 
 Monoid的结合律特性在分布式计算中极其重要，满足Monoid特性意味着我们可以将计算分解到多台机器并行运算，然后再结合各自的部分运算结果得到最终结果。同时也意味着部分运算结果可以储存下来被别的运算共享利用（如果该运算也包含相同的部分子运算），从而减少重复运算的工作量。 
 
-![](https://img-blog.csdn.net/20150523220536406)
+![TIM截图20191101174125.png](https://i.loli.net/2019/11/01/URLyTI9jlB3wamb.png)
 
 
 
@@ -105,7 +105,7 @@ Monoid的结合律特性在分布式计算中极其重要，满足Monoid特性�
 
 Lambda架构通过分解的三层架构来解决该问题：Batch Layer，Speed Layer和Serving Layer。
 
-![](https://img-blog.csdn.net/20150523220702753)
+![TIM截图20191101174246.png](https://i.loli.net/2019/11/01/NyP9lazIvYjm5Tp.png)
 
 
 
@@ -130,11 +130,11 @@ Lambda架构通过分解的三层架构来解决该问题：Batch Layer，Speed 
 
 上面说到根据等式Query = Function(All Data)，在全体数据集上在线运行查询函数得到结果的代价太大。但如果我们预先在数据集上计算并保存查询函数的结果，查询的时候就可以直接返回结果（或通过简单的加工运算就可得到结果）而无需重新进行完整费时的计算了。这儿可以把Batch Layer看成是一个数据预处理的过程。我们把针对查询预先计算并保存的结果称为View，View是Lambda架构的一个核心概念，它是针对查询的优化，通过View即可以快速得到查询结果。 
 
-![](https://img-blog.csdn.net/20160628202522024?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![20160628202522024.png](https://i.loli.net/2019/11/01/eFUsApn7myQYE5V.png)
 
 显然，batch view是一个批处理过程，如采用Hadoop或spark支持的map－reduce方式。采用这种方式计算得到的每个view都支持再次计算，且每次计算的结果都相同。Batch Layer的工作可以简单的用如下伪码表示： 
 
-![](https://img-blog.csdn.net/20150523220809255)
+![TIM截图20191101174549.png](https://i.loli.net/2019/11/01/7vBrF5jfhMdRZDg.png)
 
 该工作看似简单，实质非常强大。任何人为或机器发生的错误，都可以通过修正错误后重新计算来恢复得到正确结果。 
 
@@ -146,7 +146,7 @@ View是一个和业务关联性比较大的概念，View的创建需要从业务
 
 如下图agent id＝50023的人，在10:00:06分的时候，状态是calling，在10:00:10的时候状态为waiting。在传统的数据库设计中，直接后面的纪录覆盖前面的纪录，而在Immutable数据模型中，不会对原有数据进行更改，而是采用插入修改纪录的形式更改历史纪录。 
 
-![](https://img-blog.csdn.net/20160628202611771?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![20160628202611771.png](https://i.loli.net/2019/11/01/6JnoeflLmQv5RDq.png)
 
 上文所提及的View是上图中预先计算得到的相关视图，例如：**2016-06-21**当天所有上线的agent数，每条热线、公司下上线的Agent数。根据业务需要，预先计算出结果。此过程相当于传统数仓建模的应用层，应用层也是根据业务场景，预先加工出的view。
 
@@ -171,7 +171,7 @@ Lambda架构将数据处理分解为Batch Layer和Speed Layer有如下优点：
 - 容错性。Speed Layer中处理的数据也不断写入Batch Layer，当Batch Layer中重新计算的数据集包含Speed Layer处理的数据集后，当前的Realtime View就可以丢弃，这也就意味着Speed Layer处理中引入的错误，在Batch Layer重新计算时都可以得到修正。这点也可以看成是CAP理论中的最终一致性（Eventual Consistency）的体现。 
 - 复杂性隔离。Batch Layer处理的是离线数据，可以很好的掌控。Speed Layer采用增量算法处理实时数据，复杂性比Batch Layer要高很多。通过分开Batch Layer和Speed Layer，把复杂性隔离到Speed Layer，可以很好的提高整个系统的鲁棒性和可靠性。 
 
-![](https://user-gold-cdn.xitu.io/2018/5/29/163ab44095fb1515?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![TIM截图20191101174820.png](https://i.loli.net/2019/11/01/AjMrG9ybdhKHSqF.png)
 
 如前所述，任何传入查询都必须通过合并来自批量视图和实时视图的结果来得到答案，因此这些视图需要满足Monoid的结合律特性。需要注意的一点是，实时视图是以前的实时视图和新数据增量的函数，因此可以使用增量算法。批处理视图是所有数据的函数，因此应该在那里使用重算算法。
 
@@ -181,7 +181,7 @@ Lambda架构的Serving Layer用于响应用户的查询请求，合并Batch View
 
 这儿涉及到数据如何合并的问题。前面我们讨论了查询函数的Monoid性质，如果查询函数满足Monoid性质，即满足结合律，只需要简单的合并Batch View和Realtime View中的结果数据集即可。否则的话，可以把查询函数转换成多个满足Monoid性质的查询函数的运算，单独对每个满足Monoid性质的查询函数进行Batch View和Realtime View中的结果数据集合并，然后再计算得到最终的结果数据集。另外也可以根据业务自身的特性，运用业务自身的规则来对Batch View和Realtime View中的结果数据集合并。 
 
-![](https://img-blog.csdn.net/20150523221307488)
+![TIM截图20191101174857.png](https://i.loli.net/2019/11/01/aYXvPVNzA2hrHfd.png)
 
 综上所诉，Serving Layer采用如下等式表示：
 
@@ -199,7 +199,7 @@ query = function(batch view, realtime view)
 
 下图给出了Lambda架构的一个完整视图和流程。 
 
-![](https://img-blog.csdn.net/20150523221014820)
+![TIM截图20191101175010.png](https://i.loli.net/2019/11/01/xgNE9vi3fL7DjhQ.png)
 
 数据流进入系统后，同时发往Batch Layer和Speed Layer处理。Batch Layer以不可变模型离线存储所有数据集，通过在全体数据集上不断重新计算构建查询所对应的Batch Views。Speed Layer处理增量的实时数据流，不断更新查询所对应的Realtime Views。Serving Layer响应用户的查询请求，合并Batch View和Realtime View中的结果数据集到最终的数据集。 
 
@@ -207,11 +207,11 @@ query = function(batch view, realtime view)
 
 下图给出了Lambda架构中各组件在大数据生态系统中和阿里集团的常用组件。数据流存储选用不可变日志的分布式系统Kafka、TT、Metaq；BatchLayer数据集的存储选用Hadoop的HDFS或者阿里云的ODPS；BatchView的加工采用MapReduce；BatchView数据的存储采用Mysql（查询少量的最近结果数据）、Hbase（查询大量的历史结果数据）。SpeedLayer采用增量数据处理Storm、Flink；RealtimeView增量结果数据集采用内存数据库Redis。
 
-![](https://img-blog.csdn.net/20160628202924389?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![20160628202924389.png](https://i.loli.net/2019/11/01/rI6LRlOs8gVjQAy.png)
 
 另一个实现版本：
 
-![](https://upload-images.jianshu.io/upload_images/1552893-5b0692e1d55a8483.png!web?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp)
+![1552893-5b0692e1d55a8483.jpg](https://i.loli.net/2019/11/01/SwInDexBAJ246WL.jpg)
 
 根据batch layer的特点，具备存储(HDFS)和计算(MapReduce)的Hadoop显然是第一人选，而batch view 可以是hadoop本身的hdfs 或者基于hdfs的所构建的类似hive那样的仓库，speed layer因为时效性的影响，采用实时流式处理系统，例如strom或者spark streaming, 而speed view 可以存在HBase 或者其他类似的Nosql数据库。server layer 提供用户查询的方法，采用facebook 开源的Impala，统一入口查询。或者自己实现hive和HBase统一查询。这是两年前的文章，当时spark 还没那么火，现在看来spark可以直接作为batch和speed层的替代者了。
 
@@ -223,7 +223,7 @@ Lambda架构是个通用框架，各个层选型时不要局限时上面给出�
 
 在过去Lambda数据架构成为每一个公司大数据平台必备的架构，它解决了一个公司大数据批量离线处理和实时数据处理的需求。一个典型的Lambda架构如下：
 
-![img](https://pic1.zhimg.com/80/v2-02f100064fdcd1c5e4d46e614837ab50_hd.jpg)
+![v2-02f100064fdcd1c5e4d46e614837ab50_hd.jpg](https://i.loli.net/2019/11/01/9OgYanTFxsXeQyV.jpg)
 
 数据从底层的数据源开始，经过各种各样的格式进入大数据平台，在大数据平台中经过Kafka、Flume等数据组件进行收集，然后分成两条线进行计算。一条线是进入流式计算平台（例如 Storm、Flink或者Spark
 Streaming），去计算实时的一些指标；另一条线进入批量数据处理离线计算平台（例如Mapreduce、Hive，Spark SQL），去计算T+1的相关业务指标，这些指标需要隔日才能看见。
@@ -238,3 +238,10 @@ Lambda架构经历多年的发展，其优点是稳定，对于实时计算部�
 
 **●** **服务器存储大**：数据仓库的典型设计，会产生大量的中间结果表，造成数据急速膨胀，加大服务器存储压力。
 
+也就是由于Lambda架构的以上局限性，Kappa应运而生，它比Lambda架构更加灵活和精简，具体将另文介绍。
+
+
+
+Kappa架构：
+
+![lambdakappa1_2-104667resize590332crop00590332autoorientquality90stripbackground23ffffffextensionjpgid8.jpg](https://i.loli.net/2019/11/01/JZD2wTLGieE3OQ8.jpg)
