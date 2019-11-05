@@ -65,7 +65,7 @@ SLUG_REGEX_SUBSTITUTIONS = [
         (r'(?u)\s*\Z', ''),  # strip trailing whitespace
         (r'[-\s]+', '-'),  # reduce multiple whitespace or '-' to single '-'
     ]
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 FILENAME_METADATA = '(?P<slug>.*)'
 DRAFT_URL = 'drafts/articles/{slug}.html'
 DRAFT_SAVE_AS = DRAFT_URL
