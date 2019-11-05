@@ -10,8 +10,6 @@ Tags: VPS, Vultr
 
 ![vultr-promotion](https://s2.ax1x.com/2019/11/01/KHBPSK.png)
 
-<br>
-
 ## 测试方法
 
 采用以下方法：
@@ -21,8 +19,6 @@ Tags: VPS, Vultr
 - 本地下载测试
 - 腾讯云主机下载测试
 - 站长工具综合测试
-
-<br>
 
 ## [节点列表](https://www.vultr.com/resources/faq/#downloadspeedtests)
 
@@ -44,8 +40,6 @@ Tags: VPS, Vultr
 | Silicon Valley, California | [sjo-ca-us-ping.vultr.com](http://sjo-ca-us-ping.vultr.com/) | [100MB](https://sjo-ca-us-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://sjo-ca-us-ping.vultr.com/vultr.com.1000MB.bin) |
 | Los Angeles, California    | [lax-ca-us-ping.vultr.com](http://lax-ca-us-ping.vultr.com/) | [100MB](https://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://lax-ca-us-ping.vultr.com/vultr.com.1000MB.bin) |
 | Sydney, Australia          | [syd-au-ping.vultr.com](http://syd-au-ping.vultr.com/)       | [100MB](https://syd-au-ping.vultr.com/vultr.com.100MB.bin) [1GB](https://syd-au-ping.vultr.com/vultr.com.1000MB.bin) |
-
-<br>
 
 ## 测试结果
 
