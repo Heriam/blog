@@ -1,6 +1,7 @@
 title: 深入理解大数据之——事务的ACID特性及其实现原理
 date: 2019-11-05
 tags: ACID, Consistency, Concurrency
+template: carticle
 [TOC]
 ## 事务初探
 
