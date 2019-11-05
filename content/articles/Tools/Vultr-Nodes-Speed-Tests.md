@@ -4,8 +4,6 @@ Tags: VPS, Vultr
 
 [TOC]
 
-<br>
-
 ## 限时福利
 
 [Vultr新用户赠送$50活动入口](https://www.vultr.com/promo/try50/?service=try50)
