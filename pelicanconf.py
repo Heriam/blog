@@ -42,7 +42,6 @@ MARKDOWN = {
         },
         'markdown.extensions.toc': {     # 目录，设置看https://python-markdown.github.io/extensions/toc/
             'title': '目录',      # 目录题头
-            'baselevel': 2,
         },
     },
     'output_format': 'html5',
