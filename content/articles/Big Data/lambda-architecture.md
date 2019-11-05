@@ -1,4 +1,4 @@
-title: 深入理解大数据架构之——Lambda架构
+title: 深入理解大数据之——Lambda架构
 tags: Lambda, Kappa
 date: 2019-07-05
 
