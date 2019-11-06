@@ -2,7 +2,6 @@ title: 深入理解大数据之——事务的ACID特性及其实现原理
 date: 2019-11-05
 tags: ACID, Consistency, Concurrency
 template: carticle
-
 [TOC]
 ## 事务初探
 
@@ -140,35 +139,43 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 
 ## 事务的并发控制
 
-### 事务并发简介
+### 并发控制简介
 
-这里之所以要特别介绍事务的并发（Concurrency），是因为它是数据库系统中一个非常基本也非常重要的概念。虽然单个事务的执行可能没有任何错误，但是当多个事务同时并发执行时，不同事务中的操作可能交叉进行彼此干扰，就会造成数据库的一致性出现问题。而串行执行虽然能够允许开发者忽略并行造成的影响，能够很好地维护数据库的一致性，但是却会影响事务执行的性能，极大降低 吞吐量和资源利用率 。所以说数据库的并发性和一致性其实是一个需要开发者去权衡的问题。为了解决事务并发时的一致性问题，引入了事务隔离的机制。在 SQL 标准中定义了四种数据库的事务的隔离级别，由低到高依次为：
+这里之所以要特别介绍事务的并发（Concurrency），是因为它是数据库系统中一个非常基本也非常重要的概念。虽然单个事务的执行可能没有任何错误，但是当多个事务同时并发执行时，不同事务中的操作可能交叉进行彼此干扰，就会造成数据库的一致性出现问题。而串行（完全隔离）执行虽然能够允许开发者忽略并行造成的影响，能够很好地维护数据库的一致性，但是却会影响事务执行的性能，极大降低吞吐量和资源利用率 。所以说数据库的并发性和隔离性其实是一个需要开发者去权衡的问题。
 
-- 读未提交（Read uncommitted）
+要对事务并发和隔离有个快速的理解，其实只需要看 [A Critique of ANSI SQL Isolation Levels](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf) 这篇论文就足够了，其详细介绍了数据库事务并发可能存在的各种问题，根据对一致性的影响由强到弱（非绝对）大致列举如下：
 
-- 读已提交（Read committed）
+- P0: 脏写（Dirty Write）
+- P1: 脏读（Dirty Read）
+- P2: 不可重复读（Non-repeatable Read/Fuzzy Read）
+- P3: 幻读（Phantom Read）
+- P4: 丢失更新（Lost Update）
+- P4C: 游标丢失更新（Cursor Lost Update）
+- A5A: 读偏（Read Skew）
+- A5B: 写偏（Write Skew）
 
-- 可重复读（Repeatable read）
+（P是Phenomena，即现象的缩写）
 
+针对以上并发问题，论文引入了事务隔离的机制。在最开始的 SQL 标准中定义了四种数据库的事务的隔离（Isolation）级别，随着技术的演进，出现了很多当初的标准没有定义的新的隔离级别，诸如Snapshot Isoloation等。论文中详细阐述了6种隔离级别：
+
+- 读未提交（Read Uncommitted）
+- 读已提交（Read Committed）
+- 游标稳定性（Cursor Stability）
+- 可重复读（Repeatable Read）
+- 快照隔离（Snapshot）
 - 可串行化（Serializable）
 
-这四个级别可以逐个解决脏读 、不可重复读 、幻读这几类由并发引入的问题。
+以上每种隔离级别强度逐层递进，解决并发异常的能力由弱渐强，由此带来性能上的牺牲也依次增大。
 
-> 总体来说，不同的隔离级别实质上是数据库在并发性能和数据一致性之间不同程度的折中，为数据库提供什么样的隔离性层级也就决定了数据库的性能以及可以达到什么样的一致性。
+总体来说，不同的隔离级别的选择，实质上是依据业务需求，对数据库在并发性能和数据一致性之间作出不同程度的折中，为数据库提供什么样的隔离性层级也就决定了数据库的性能以及可以达到什么样的一致性。
 
 ### 常见并发异常
 
- 常见的并发异常主要有：
-
-- 脏写（Dirty write）
-- 丢失更新（Lost update）
-- 脏读（Dirty read）
-- 不可重复读（Unrepeatable read）
-- 幻读（Phantom read）
+- 
 
 #### 脏写（Dirty Write）
 
-任何RDBMS都不允许脏写——因为它们遵循ACID属性。前述的所有的事务隔离级别也都不存在脏写的情况。
+
 
 
 
@@ -186,9 +193,19 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 按引用先后顺序：
 
 1. *What is a database transaction? (2019). Retrieved November 5, 2019, from Stack Overflow website: https://stackoverflow.com/questions/974596/what-is-a-database-transaction*
+
 2. *Communcations and Information Processing: First International Conference, ICCIP 2012, Aveiro, Portugal, March 7-11, 2012, Proceedings, 第 2 部分*
+
 3. *Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems, 第25节*
+
 4. *ACID Properties in DBMS - GeeksforGeeks. (2016, August 7). Retrieved November 5, 2019, from GeeksforGeeks website: https://www.geeksforgeeks.org/acid-properties-in-dbms/*
+
 5. *维基百科. (2011, July 25). 预写式日志. Retrieved November 5, 2019, from Wikipedia.org website: https://zh.wikipedia.org/wiki/%E9%A2%84%E5%86%99%E5%BC%8F%E6%97%A5%E5%BF%97*
+
 6. *数据库事务的概念及其实现原理 - takumiCX - 博客园. (2018). Retrieved November 5, 2019, from Cnblogs.com website: https://www.cnblogs.com/takumicx/p/9998844.html*
+
 7. *浅入深出MySQL中事务的实现. (2017, August 20). Retrieved November 5, 2019, from 面向信仰编程 website: https://draveness.me/mysql-transaction*
+
+8. *Berenson, H., Bernstein, P., Gray, J., Melton, J., O’Neil, E., & O’Neil, P. (1995). A critique of ANSI SQL isolation levels. ACM SIGMOD Record, 24(2), 1–10. https://doi.org/10.1145/568271.223785*
+
+   ‌
