@@ -2,6 +2,7 @@ title: 深入理解大数据之——事务的ACID特性及其实现原理
 date: 2019-11-05
 tags: ACID, Consistency, Concurrency
 template: carticle
+
 [TOC]
 ## 事务初探
 
@@ -167,7 +168,7 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 
 #### 脏写（Dirty Write）
 
-
+任何RDBMS都不允许脏写——因为它们遵循ACID属性。前述的所有的事务隔离级别也都不存在脏写的情况。
 
 
 
