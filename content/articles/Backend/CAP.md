@@ -1,9 +1,10 @@
-title: 深入理解大数据之——事务的ACID特性及其实现原理
+title: 深入理解大数据之——事务及其ACID特性
 date: 2019-11-05
 tags: ACID, Consistency, Concurrency
 template: carticle
+
 [TOC]
-## 事务初探
+## 事务简介
 
 ### 事物的定义
 
@@ -112,7 +113,7 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 
 还是拿转账来说，在A向B转账的整个过程中，只要事务还没有提交（commit），查询A账户和B账户的时候，两个账户里面的钱的数量都不会有变化。如果在A给B转账的同时，有另外一个事务执行了C给B转账的操作，那么当两个事务都结束的时候，B账户里面的钱必定是A转给B的钱加上C转给B的钱再加上自己原有的钱。 
 
-如此，隔离性防止了多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括未提交读（Read uncommitted）、提交读（read committed）、可重复读（repeatable read）和串行化（Serializable）。以上4个级别的隔离性依次增强，分别解决不同的问题。**事务隔离级别越高，就越能保证数据的完整性和一致性，但同时对并发性能的影响也越大**。具体将在后文详述。
+如此，隔离性防止了多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括未提交读（Read uncommitted）、提交读（read committed）、可重复读（repeatable read）和串行化（Serializable）。以上4个级别的隔离性依次增强，分别解决不同的问题。**事务隔离级别越高，就越能保证数据的完整性和一致性，但同时对并发性能的影响也越大**。
 
 ### 持久性（Durability）
 
@@ -122,9 +123,9 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 
 > 在使用WAL的系统中，所有的修改都先被写入到日志中，然后再被应用到系统状态中。假设一个程序在执行某些操作的过程中机器掉电了。在重新启动时，程序可能需要知道当时执行的操作是成功了还是部分成功或者是失败了。如果使用了WAL，程序就可以检查log文件，并对突然掉电时计划执行的操作内容跟实际上执行的操作内容进行比较。在这个比较的基础上，程序就可以决定是撤销已做的操作还是继续完成已做的操作，或者是保持原样。 
 
-### ACID总结
+## 总结
 
- 在事务的ACID特性中，C即一致性是事务的根本追求，而对数据一致性的破坏主要来自两个方面：
+ 事务（Transaction）是由一系列对系统中数据进行访问或更新的操作所组成的一个程序执行逻辑单元（Unit）。在事务的ACID特性中，C即一致性是事务的根本追求，而对数据一致性的破坏主要来自两个方面：
 
 - 事务的并发执行
 - 事务故障或系统故障
@@ -135,63 +136,11 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 
 日志恢复技术保证了事务的原子性，使一致性状态不会因事务或系统故障被破坏。同时使已提交的对数据库的修改不会因系统崩溃而丢失，保证了事务的持久性。
 
+我们将另文对以上两种技术进行详细介绍。
 
 ![1422237-20181122103102223-1059881337.png](https://i.loli.net/2019/11/05/kESoJcXzCF3eWmv.png)
 
-## 事务的并发控制
-
-### 并发控制简介
-
-这里之所以要特别介绍事务的并发（Concurrency），是因为它是数据库系统中一个非常基本也非常重要的概念。虽然单个事务的执行可能没有任何错误，但是当多个事务同时并发执行时，不同事务中的操作可能交叉进行彼此干扰，就会造成数据库的一致性出现问题。而串行（完全隔离）执行虽然能够允许开发者忽略并行造成的影响，能够很好地维护数据库的一致性，但是却会影响事务执行的性能，极大降低吞吐量和资源利用率 。所以说数据库的并发性和隔离性其实是一个需要开发者去权衡的问题。
-
-要对事务并发和隔离有个快速的理解，其实只需要看 [A Critique of ANSI SQL Isolation Levels](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf) 这篇论文就足够了，其详细介绍了数据库事务并发可能存在的各种问题，根据对一致性的影响由强到弱（非绝对）大致列举如下：
-
-- P0: 脏写（Dirty Write）
-- P1: 脏读（Dirty Read）
-- P2: 不可重复读（Non-repeatable Read/Fuzzy Read）
-- P3: 幻读（Phantom Read）
-- P4: 丢失更新（Lost Update）
-- P4C: 游标丢失更新（Cursor Lost Update）
-- A5A: 读偏（Read Skew）
-- A5B: 写偏（Write Skew）
-
-（P是Phenomena，即现象的缩写）
-
-针对以上并发问题，论文引入了事务隔离的机制。在最开始的 SQL 标准中定义了四种数据库的事务的隔离（Isolation）级别，随着技术的演进，出现了很多当初的标准没有定义的新的隔离级别，诸如Snapshot Isoloation等。论文中详细阐述了6种隔离级别：
-
-- 读未提交（Read Uncommitted）
-- 读已提交（Read Committed）
-- 游标稳定性（Cursor Stability）
-- 可重复读（Repeatable Read）
-- 快照隔离（Snapshot）
-- 可串行化（Serializable）
-
-以上每种隔离级别强度逐层递进，解决并发异常的能力由弱渐强，由此带来性能上的牺牲也依次增大。
-
-总体来说，不同的隔离级别的选择，实质上是依据业务需求，对数据库在并发性能和数据一致性之间作出不同程度的折中，为数据库提供什么样的隔离性层级也就决定了数据库的性能以及可以达到什么样的一致性。
-
-### 常见并发异常
-
-- 
-
-#### 脏写（Dirty Write）
-
-
-
-
-
-### 事务隔离的目的
-
-在多用户操作的数据库中，需要对于数据访问的并发性能和数据的一致性进行合理的控制。为了解决事务并发时的一致性问题，引入了事务隔离的机制，即多个线程同时操作数据库的数据时，数据库系统要能进行隔离操作，以保证各个线程获取数据的准确性。当然，对一个单用户、单线程的应用来说则不存在这个问题。
-
-
-
-
-
-
 ## 参考文献
-
-按引用先后顺序：
 
 1. *What is a database transaction? (2019). Retrieved November 5, 2019, from Stack Overflow website: https://stackoverflow.com/questions/974596/what-is-a-database-transaction*
 
@@ -206,7 +155,5 @@ Martin Kleppmann在他的《Designing Data-Intensive Applications》一书中有
 6. *数据库事务的概念及其实现原理 - takumiCX - 博客园. (2018). Retrieved November 5, 2019, from Cnblogs.com website: https://www.cnblogs.com/takumicx/p/9998844.html*
 
 7. *浅入深出MySQL中事务的实现. (2017, August 20). Retrieved November 5, 2019, from 面向信仰编程 website: https://draveness.me/mysql-transaction*
-
-8. *Berenson, H., Bernstein, P., Gray, J., Melton, J., O’Neil, E., & O’Neil, P. (1995). A critique of ANSI SQL isolation levels. ACM SIGMOD Record, 24(2), 1–10. https://doi.org/10.1145/568271.223785*
 
    ‌
