@@ -1,6 +1,6 @@
 title: 深入理解大数据之——事务及其ACID特性
 date: 2019-11-05
-tags: ACID, Consistency, Concurrency
+tags: ACID, Consistency, Database
 template: carticle
 
 [TOC]
