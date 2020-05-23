@@ -33,7 +33,11 @@ template: carticle
 
 VXLAN 全称是 `Virtual eXtensible Local Area Network`，虚拟可扩展的局域网。它是一种 Overlay 技术，采用L2 over L4（MAC-in-UDP）封装方式，是NVO3（Network Virtualization over Layer 3）中的一种网络虚拟化技术，将二层报文用三层协议进行封装，可实现虚拟的二层网络在三层范围内进行扩展，同时满足数据中心大二层虚拟迁移和多租户的需求。RFC7348上的介绍是这样的：
 
-> *A framework for overlaying virtualized layer 2 networks over lay 3 networks.*
+
+
+*A framework for overlaying virtualized layer 2 networks over lay 3 networks.*
+
+
 
 ### 意义
 
@@ -221,3 +225,4 @@ VTEP发送报文最关键的就是知道对方虚拟机的 MAC 地址和虚拟�
 
 1. [vxlan 协议原理简介](https://cizixs.com/2017/09/25/vxlan-protocol-introduction/)
 2. [华为悦读汇技术发烧友：认识VXLAN](https://forum.huawei.com/enterprise/zh/thread-334207.html)
+3. [华为VxLAN技术白皮书](https://doc01.homedo.com/Files/Documents/PreparationAttachment/%E5%8D%8E%E4%B8%BA/100112539/%E5%8D%8E%E4%B8%BACloudEngine%2012800%E4%BA%A4%E6%8D%A2%E6%9C%BAVXLAN%E6%8A%80%E6%9C%AF%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf)
