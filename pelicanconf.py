@@ -133,7 +133,7 @@ MENUITEMS = (
 #网站管理
 THEME = 'tuxlite_tbs'
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['extract_toc','sitemap','tipue_search']
+PLUGINS = ['extract_toc','sitemap','tipue_search','render_math']
 GOOGLE_ANALYTICS = 'UA-137721527-1'
 SITEMAP = {
     "format": "xml",
