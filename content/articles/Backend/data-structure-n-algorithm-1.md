@@ -259,7 +259,7 @@ int find(int[] array, int n, int x) {
 
 因此，前面的推导过程中存在的最大问题就是，没有将各种情况发生的概率考虑进去。如果我们把每种情况发生的概率也考虑进去，那平均时间复杂度的计算过程就变成了这样：
 
-<img src="https://heriam.coding.net/api/share/download/d831f6c0-bef7-4600-b6b6-f1ce17a9126b" onerror="https://static001.geekbang.org/resource/image/36/7f/36c0aabdac69032f8a43368f5e90c67f.jpg';this.onerror=null"/>
+<img src="https://heriam.coding.net/api/share/download/d831f6c0-bef7-4600-b6b6-f1ce17a9126b" onerror="this.src='https://static001.geekbang.org/resource/image/36/7f/36c0aabdac69032f8a43368f5e90c67f.jpg';this.onerror=null"/>
 
 这个值就是概率论中的加权平均值，也叫作期望值，所以平均时间复杂度的全称应该叫加权平均时间复杂度或者期望时间复杂度。
 
@@ -306,7 +306,7 @@ int find(int[] array, int n, int x) {
 
 假设数组的长度是 n，根据数据插入的位置的不同，我们可以分为 n 种情况，每种情况的时间复杂度是 O(1)。除此之外，还有一种“额外”的情况，就是在数组没有空闲空间时插入一个数据，这个时候的时间复杂度是 O(n)。而且，这 n+1 种情况发生的概率一样，都是 1/(n+1)。所以，根据加权平均的计算方法，我们求得的平均时间复杂度就是：
 
-<img src="https://heriam.coding.net/api/share/download/7b1358d9-c7ea-4f2a-8954-66b5a1473b59" onerror="https://static001.geekbang.org/resource/image/6d/ed/6df62366a60336d9de3bc34f488d8bed.jpg';this.onerror=null"/>
+<img src="https://heriam.coding.net/api/share/download/7b1358d9-c7ea-4f2a-8954-66b5a1473b59" onerror="this.src='https://static001.geekbang.org/resource/image/6d/ed/6df62366a60336d9de3bc34f488d8bed.jpg';this.onerror=null"/>
 
 至此为止，前面的最好、最坏、平均时间复杂度的计算，理解起来应该都没有问题。但是这个例子里的平均复杂度分析其实并不需要这么复杂，不需要引入概率论的知识。这是为什么呢？我们先来对比一下这个 insert() 的例子和前面那个 find() 的例子，你就会发现这两者有很大差别。
 
