@@ -210,7 +210,7 @@ i∈[0,N-1)               //循环N-1遍
     }
 ```
 
-### 记录上一轮最后一次交换的位置的双向冒泡排序
+### 优化5：记录上一轮最后一次交换的位置的双向冒泡排序
 
 ```java
     public static int[] cocktail_sort_mark_last_swap(int[] nums) {
@@ -261,4 +261,4 @@ cocktail_sort_quit_if_sorted: run 934706395, swap 622443661, isSorted: true
 cocktail_sort_mark_last_swap: run 828009788, swap 622443661, isSorted: true
 ```
 
-优化4所进行的运算量最少。大多数运算都有效进行了元素交换（排序），而排除了大量无效的循环比较。
+优化5所进行的运算量最少。大多数运算都有效进行了元素交换（排序），而排除了大量无效的循环比较。
