@@ -25,23 +25,23 @@ template:carticle
 ## 算法实现
 
 ```java
-    public static int[] bubble_sort_original(int[] nums) {
-        int[] arr = Arrays.copyOf(nums, nums.length);
-        int count = 0, swap_count = 0;
-        for (int i = 0; i < arr.length-1; i++) {
-            for (int j = 0; j < arr.length-1-i; j++) {
-                count++;
-                if (arr[j] > arr[j+1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
-                    swap_count++;
-                }
-            }
-        }
-        System.out.println("bubble_sort_original: run " + count + ", swap " + swap_count + ", isSorted: " + isSorted(arr)); //打印运行次数、交换次数，以及排序检验
-        return arr;
+public static int[] bubble_sort_original(int[] nums) {
+  int[] arr = Arrays.copyOf(nums, nums.length);
+  int count = 0, swap_count = 0;
+  for (int i = 0; i < arr.length-1; i++) {
+    for (int j = 0; j < arr.length-1-i; j++) {
+      count++;
+      if (arr[j] > arr[j+1]) {
+        int tmp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = tmp;
+        swap_count++;
+      }
     }
+  }
+  System.out.println("bubble_sort_original: run " + count + ", swap " + swap_count + ", isSorted: " + isSorted(arr)); //打印运行次数、交换次数，以及排序检验
+  return arr;
+}
 ```
 
 ## 助记码
