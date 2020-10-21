@@ -122,7 +122,7 @@ public static int[] selection_sort_bidirectional(int[] nums) {
 
 ### 运行结果
 
-使用数据集https://leetcode-cn.com/accounts/login/?next=/submissions/detail/114474973/testcase/测试运行，得结果如下：
+使用数据集https://leetcode-cn.com/submissions/detail/114474973/testcase/测试运行，得结果如下：
 
 ```java
 49999,1249975000,49983  //单向选择
