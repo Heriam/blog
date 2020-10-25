@@ -1,5 +1,6 @@
 title: 深入理解大数据之——Lambda架构
 tags: Lambda, Kappa
+template: carticle
 date: 2019-07-05
 
 [TOC]
