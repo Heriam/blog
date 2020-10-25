@@ -3,7 +3,7 @@ date: 2020-10-26
 template:carticle
 
 
-[toc]
+[TOC]
 
 
 ## 算法原理
