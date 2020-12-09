@@ -8,12 +8,15 @@ template:carticle
 
 归并排序（Merge sort）是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。
 
-![img](https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png)
-
 作为一种典型的分而治之思想的算法应用，归并排序的实现由两种方法：
 
 - 自上而下的递归：它从树的顶端开始，然后向下操作，每次操作都问同样的问题（我需要做什么来排序这个数组？）并回答它（分成两个子数组，进行递归调用，合并结果），直到我们到达树的底部。
+
+  ![Picture2.png](https://pic.leetcode-cn.com/8c47e58b6247676f3ef14e617a4686bc258cc573e36fcf67c1b0712fa7ed1699-Picture2.png)
+
 - 自下而上的迭代：不需要递归。它直接从树的底部开始，然后通过遍历这些片段再将它们合并起来。
+
+  ![Picture1.png](https://pic.leetcode-cn.com/c1d5347aa56648afdec22372ee0ed13cf4c25347bd2bb9727b09327ce04360c2-Picture1.png)
 
 在《数据结构与算法 JavaScript 描述》中，作者给出了自下而上的迭代方法。但是对于递归法，作者却认为：
 
