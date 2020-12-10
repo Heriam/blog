@@ -323,13 +323,15 @@ public static ListNode merge(ListNode left, ListNode right) {
 
 ```java
 public static ListNode sortList(ListNode head) {
+    // 求链表长度
     ListNode h = head;
     int length = 0;
-    int blockSize = 1;
     while (h != null) {
         h = h.next;
         length+=1;
     }
+    // 初始化准备
+    int blockSize = 1;
     ListNode res = new ListNode(-1);
     res.next = head;
     // 从1到length迭代单元块大小
