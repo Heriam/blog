@@ -332,14 +332,17 @@ public static ListNode sortList(ListNode head) {
     }
     // 初始化准备
     int blockSize = 1;
+    // 结果链表哨兵
     ListNode res = new ListNode(-1);
     res.next = head;
     // 从1到length迭代单元块大小
     while (blockSize<length) {
+        // 结果链表游标
         ListNode pre = res;
         h = res.next;
         // 两两遍历所有单元块
         while (h != null) {
+            // 求第一个子链
             ListNode h1 = h;
             int i = blockSize;
             while (i>0 && h!=null) {
@@ -347,12 +350,14 @@ public static ListNode sortList(ListNode head) {
                 i-=1;
             }
             if (i>0) break;
+            // 求第二个子链
             ListNode h2 = h;
             i = blockSize;
             while (i>0 && h!=null) {
                 h = h.next;
                 i-=1;
             }
+            // 合并两个子链
             int c1 = blockSize;
             int c2 = blockSize-i;
             while (c1>0 && c2>0) {
@@ -367,12 +372,15 @@ public static ListNode sortList(ListNode head) {
                 }
                 pre = pre.next;
             }
+            // 将比较完后其中剩下的那个子链所有节点直接尾接到结果链表
             pre.next = c1>0 ? h1 : h2;
+            // 归正游标
             while (c1>0 || c2>0) {
                 pre = pre.next;
                 c1-=1;
                 c2-=1;
             }
+            // 接回链表
             pre.next = h;
         }
         blockSize *= 2;
