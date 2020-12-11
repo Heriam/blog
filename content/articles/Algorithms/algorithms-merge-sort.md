@@ -380,7 +380,7 @@ public static ListNode sortList(ListNode head) {
                 c1-=1;
                 c2-=1;
             }
-            // 接回链表
+            // 归正归并后的链表尾节点回原链表
             pre.next = h;
         }
         blockSize *= 2;
